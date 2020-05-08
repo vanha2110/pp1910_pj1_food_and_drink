@@ -18,8 +18,6 @@ class CreatePostsTable extends Migration
             $table->bigInteger('user_id');
             $table->string('title');
             $table->text('content');
-            $table->datetime('posted_at');
-            $table->datetime('update_at');
             $table->string('slug');
             $table->timestamps();
         });
