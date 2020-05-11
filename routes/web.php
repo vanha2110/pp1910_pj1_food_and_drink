@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('web.index');
 });
+
+Route::group(['namespace' => 'Auth'], function () {
+    Route::get('/users/register', 'RegisterController@showRegistrationForm')->name('register');;
+    Route::post('/users/register', 'RegisterController@register');
+    Route::get('/users/login', 'LoginController@showLoginForm')->name('login');
+    Route::post('/users/login', 'LoginController@login');
+    Route::get('/users/logout', 'LogoutController@logout')->name('logout');
+});
+
+// Route::group('namespace' => 'Web', function() {
+
+//     Route::group(['middleware' => 'auth:web'], function() {
+//         Route::get('/', 'HomeController@index')->name('index');
+//     });
+// });
