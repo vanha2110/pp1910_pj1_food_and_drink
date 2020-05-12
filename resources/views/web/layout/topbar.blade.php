@@ -1,30 +1,4 @@
 <header id="home" class="navbar-fixed-top">
-    <div class="header_top_menu clearfix">	
-        <div class="container">
-            <div class="row">	
-                <div class="col-md-5 col-md-offset-3 col-sm-12 text-right">
-                    <div class="call_us_text">
-                        <a href=""><i class="fa fa-clock-o"></i> Order Foods 24/7</a>
-                        <a href=""><i class="fa fa-phone"></i>061 9876 5432</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-12">
-                    <div class="head_top_social text-right">
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-google-plus"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
-                        <a href=""><i class="fa fa-pinterest-p"></i></a>
-                        <a href=""><i class="fa fa-youtube"></i></a>
-                        <a href=""><i class="fa fa-phone"></i></a>
-                        <a href=""><i class="fa fa-camera"></i></a>
-                    </div>	
-                </div>
-
-            </div>			
-        </div>
-    </div>
 
     <!-- End navbar-collapse-->
 
@@ -41,20 +15,44 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand our_logo" href="#"><img src="assets/images/logo.png" alt="" /></a>
+                            <!-- <a class="navbar-brand our_logo" href="#"><img src="template_web/images/logo.png" alt="" /></a> -->
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav navbar-left">
                                 <li><a href="#slider">Home</a></li>
                                 <li><a href="#abouts">Menu</a></li>
                                 <li><a href="#features">Features</a></li>
                                 <li><a href="#portfolio">Delivery</a></li>
-                                <li><a href="#ourPakeg">News</a></li>
-                                <li><a href="#mobaileapps">Pages</a></li>
-                                <li><a href="#" class="booking">Table Booking</a></li>
+                                <!-- <li><a href="#" class="booking">Table Booking</a></li> -->
+                            </ul>
+                                
+                            <ul class="nav navbar-nav navbar-right">
+                                @if (Auth::guest())
+                                    <li><a href="{{ route('login') }}"><button type="button" class="btn btn-primary">Đăng nhập</button></a></li>
+                                @else
+                                    <li class="btn btn-primary dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </a>
+
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                    Đăng Xuất
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endif
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
