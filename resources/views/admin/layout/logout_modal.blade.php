@@ -10,7 +10,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Huỷ bỏ</button>
-                <a class="btn btn-primary" href="#">Đăng Xuất</a>
+                <a class="btn btn-primary" href="{{route('admin.auth.logout')}}">Đăng Xuất</a>
             </div>
         </div>
     </div>

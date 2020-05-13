@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#"> 
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.index') }}"> 
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="#"> 
+        <a class="nav-link" href="{{ route('admin.index') }}"> 
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
@@ -28,6 +28,13 @@
     Interface
     </div>
 
+    <!-- Order menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-paw"></i>
+            <span>Order</span>
+        </a>
+    </li>
     <!-- Post Menu -->
     <li class="nav-item">
         <a class="nav-link" href="#">
@@ -47,7 +54,7 @@
     <!-- Product Menu -->
     <li class="nav-item">
         <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-comments"></i>
+            <i class="fas fa-fw fa-tree"></i>
             <span>Product</span>
         </a>
     </li>
@@ -62,7 +69,7 @@
 
     <!-- Users Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin.users.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Users</span>
         </a>
