@@ -4,17 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Repositories\UserRepository;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
+use App\Repositories\CategoryRepository;
 
-class UserController extends Controller
+class CategoryController extends Controller
 {
-    protected $userRepository;
+    protected $categoryRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(CategoryRepository $categoryRepository)
     {
-        $this->userRepository = $userRepository;
+        $this->categoryRepository = $categoryRepository;
     }
     /**
      * Display a listing of the resource.
@@ -23,9 +22,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->userRepository->getAll();
+        $categories = $this->categoryRepository->getAll();
 
-        return view('admin.users.index', compact('users'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -35,7 +34,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.categories.create');
     }
 
     /**
@@ -46,7 +45,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->userRepository->create($request);
+        $this->categoryRepository->create($request);
 
         return redirect()->back();
     }
@@ -70,9 +69,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->userRepository->find($id);
+        $category = $this->categoryRepository->find($id);
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -84,9 +83,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->userRepository->update($request, $id);
+        $this->categoryRepository->update($request, $id);
 
-        return redirect()->route('admin.users.index');
+        return redirect('/admin/categories');
     }
 
     /**
@@ -97,7 +96,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $this->userRepository->delete($id);
-        return redirect()->route('admin.users.index');
+        $this->categoryRepository->delete($id);
+
+        return redirect('/admin/categories');
     }
 }

@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
+    }
+
     public function avatar()
     {
         return $this->hasOne(Image::class, 'avatar', 'id');
