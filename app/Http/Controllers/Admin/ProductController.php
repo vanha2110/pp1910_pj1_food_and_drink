@@ -8,16 +8,18 @@ use App\Http\Requests\ProductFormRequest;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Category;
-use App\Repositories\ProductRepository;
-use App\Repositories\CategoryRepository;
+use App\Repositories\Contracts\CategoryInterface;
+use App\Repositories\Contracts\ProductInterface;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
     protected $productRepository, $categoryRepository;
 
-    public function __construct(ProductRepository $productRepository, CategoryRepository $categoryRepository)
+    public function __construct(ProductInterface $productRepository, CategoryInterface $categoryRepository)
     {
         $this->productRepository = $productRepository;
+
         $this->categoryRepository = $categoryRepository;
     }
 
@@ -29,7 +31,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->productRepository->getAll();
-        $categories = $this->categoryRepository->getAll();
 
         return view('admin.products.index', compact('products'));
     }
@@ -54,7 +55,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = $this->productRepository->create($request);
+        $data = [
+            'category_id' => $request->get('category_id'),
+            'name' => $request->get('name'),
+            'slug' => Str::slug($request->get('name', '-')),
+            'image' => $request->get('image'),
+            'price' => $request->get('price'),
+            'description' => $request->get('description'),
+        ];
+
+        $product = $this->productRepository->create($data);
 
         return redirect()->back();
     }
@@ -99,7 +109,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $product = $this->productRepository->update($request, $slug);
+        $data = [
+            'category_id' => $request->get('category_id'),
+            'name' => $request->get('name'),
+            'slug' => Str::slug($request->get('name', '-')),
+            'image' => $request->get('image'),
+            'price' => $request->get('price'),
+            'description' => $request->get('description'),
+        ];
+        $product = $this->productRepository->updateBySlug($slug, $data);
         $product_id = $this->productRepository->findBySlug($slug)->id;
         ProductImage::whereProductId($product_id)->delete();
 
@@ -116,13 +134,13 @@ class ProductController extends Controller
     {
         $this->productRepository->deleteBySlug($slug);
 
-        return redirect('/admin/products');
+        return redirect()->route('admin.products.index');
     }
 
-    public function storeImage(Request $request)
-    {
-        $response = $this->productRepository->storeImage($request);
+    // public function storeImage(Request $request)
+    // {
+    //     $response = $this->productRepository->storeImage($request);
 
-        return response()->json($resqonse);
-    }
+    //     return response()->json($resqonse);
+    // }
 }
