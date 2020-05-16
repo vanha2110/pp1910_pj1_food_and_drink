@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Http\Requests\ProductFormRequest;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Rate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;

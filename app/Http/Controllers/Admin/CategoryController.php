@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Repositories\CategoryRepository;
+use App\Repositories\Contracts\CategoryInterface;
 
 class CategoryController extends Controller
 {
     protected $categoryRepository;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryInterface $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
     }
@@ -45,7 +45,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->categoryRepository->create($request);
+        $data = [
+            'name' => $request->get('name'),
+        ];
+        
+        $this->categoryRepository->create($data);
 
         return redirect()->back();
     }
@@ -83,9 +87,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->categoryRepository->update($request, $id);
+        $data = [
+            'name' => $request->get('name'),
+        ];
 
-        return redirect('/admin/categories');
+        $this->categoryRepository->update($id, $data);
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -98,6 +106,6 @@ class CategoryController extends Controller
     {
         $this->categoryRepository->delete($id);
 
-        return redirect('/admin/categories');
+        return redirect()->route('admin.categories.index');
     }
 }
