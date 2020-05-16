@@ -22,30 +22,29 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                             <ul class="nav navbar-nav navbar-left">
-                                <li><a href="#slider">Home</a></li>
-                                <li><a href="#abouts">Menu</a></li>
-                                <li><a href="#features">Features</a></li>
-                                <li><a href="#portfolio">Delivery</a></li>
+                                <li><a href="#slider">TRANG CHỦ</a></li>
+                                <li><a href="#abouts">THỰC ĐƠN</a></li>
+                                <li><a href="#features">BLOG</a></li>
+                                <li><a href="#portfolio">ABOUT</a></li>
                                 <!-- <li><a href="#" class="booking">Table Booking</a></li> -->
                             </ul>
                                 
                             <ul class="nav navbar-nav navbar-right">
                                 @if (Auth::guest())
-                                    <li><a href="{{ route('login') }}"><button type="button" class="btn btn-primary">Đăng nhập</button></a></li>
+                                    <li><a href="{{ route('login') }}">Đăng nhập</a></li>
                                 @else
-                                    <li class="btn btn-primary dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                            {{ Auth::user()->name }} <span class="caret"></span>
+
+                                    <li class="">
+                                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            {{ Auth::user()->name }}
+                                            <span class=" fa fa-angle-down"></span>
                                         </a>
-
-                                        <ul class="dropdown-menu" role="menu">
+                                        <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                            <li><a href="javascript:;"> Profile</a></li>
+                                            <li><a href="javascript:;">Change Password</a></li>
+                                            <div class="dropdown-divider"></div>
                                             <li>
-                                                <a href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    Đăng Xuất
-                                                </a>
-
+                                                <a href="{{ route('logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">
                                                     {{ csrf_field() }}
                                                 </form>
