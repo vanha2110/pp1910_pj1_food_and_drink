@@ -4,14 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Repositories\Contracts\UserInterface;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     protected $userRepository;
 
-    public function __construct(UserInterface $user)
+    public function __construct(UserInterface $userRepository)
     {
-        $this->userRepository = $user;
+        $this->userRepository = $userRepository;
     }
     /**
      * Display a listing of the resource.
@@ -43,7 +47,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->userRepository->create($request);
+        $data = [
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'phone' => $request->get('phone'),
+            'password' => Hash::make($request->get('password')),
+            'avatar' => 'image.jpg',
+            'role_id' => '2',
+        ];
+        $this->userRepository->create($data);
 
         return redirect()->back();
     }
@@ -81,9 +93,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->userRepository->update($request, $id);
+        $data = [
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'phone' => $request->get('phone'),
+            'password' => Hash::make($request->get('password')),
+        ];
 
-        return redirect('/admin/users');
+        $this->userRepository->update($id, $data);
+
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -95,6 +114,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->userRepository->delete($id);
-        return redirect('admin/users');
+        return redirect()->route('admin.users.index');
     }
 }
