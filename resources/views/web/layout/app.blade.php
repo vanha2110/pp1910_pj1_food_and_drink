@@ -36,10 +36,6 @@
 		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
         @include('web.layout.topbar')
 
-        @include('web.layout.slider')
-
-        @include('web.layout.about')
-
         @yield('content')
 
         @include('web.layout.footer')

@@ -4,7 +4,7 @@
             <div class="footer_widget_content text-center">
                 <div class="col-md-4">
                     <div class="single_widget wow fadeIn" data-wow-duration="2s">
-                        <h3>Take it easy with location</h3>
+                        <h3>Thông tin liên hệ</h3>
 
                         <div class="single_widget_info">
                             <p>112-Legere ancillae vix ne.
@@ -30,7 +30,7 @@
 
                 <div class="col-md-4">
                     <div class="single_widget wow fadeIn" data-wow-duration="4s">
-                        <h3>Take it easy with location</h3>
+                        <h3>Giờ mở cửa</h3>
 
                         <div class="single_widget_info">
                             <p><span class="date_day">Monday To Friday</span>
@@ -46,27 +46,27 @@
 
                 <div class="col-md-4">
                     <div class="single_widget wow fadeIn" data-wow-duration="5s">
-                        <h3>Take it easy with location</h3>
+                        <h3>Bạn muốn liên hệ với chúng tôi!</h3>
 
                         <div class="single_widget_form text-left">
                             <form action="#" id="formid">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="first name" required="">
+                                    <input type="text" class="form-control" name="name" placeholder="Name" required="">
                                 </div>
 
                                 <div class="form-group">
                                     <input type="email" class="form-control" name="email" placeholder="Email" required="">
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Subject">
-                                </div> <!-- end of form-group -->
+                                </div> --}}
 
                                 <div class="form-group">
                                     <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
                                 </div>
 
-                                <input type="submit" value="click here" class="btn btn-primary">
+                                <input type="submit" value="Gửi" class="btn btn-primary">
                             </form>	
                         </div>
                     </div>
