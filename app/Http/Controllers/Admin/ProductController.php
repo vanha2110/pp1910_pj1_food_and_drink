@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Repositories\Contracts\CategoryInterface;
 use App\Repositories\Contracts\ProductInterface;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -63,6 +64,18 @@ class ProductController extends Controller
             'price' => $request->get('price'),
             'description' => $request->get('description'),
         ];
+
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('image')->storeAs('public/img', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        
 
         $product = $this->productRepository->create($data);
 

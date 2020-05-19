@@ -30,7 +30,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
         Route::post('/create', 'ProductController@store');
         Route::get('/{product_slug}/edit', 'ProductController@edit')->name('edit');
         Route::post('/{product_slug}/update', 'ProductController@update')->name('update');
-        Route::get('/{product_id}/delete', 'ProductController@destroy')->name('delete');
+        Route::get('/{product_slug}/delete', 'ProductController@destroy')->name('delete');
     });
 
     Route::group(['as' => 'categories.', 'prefix' => '/categories'], function () {

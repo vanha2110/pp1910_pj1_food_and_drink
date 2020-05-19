@@ -9,7 +9,7 @@
     </a>
 </div>
 
-<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('admin.products.create')}}">
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('admin.products.create')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name<span class="required">*</span></label>
@@ -37,7 +37,7 @@
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Image</label>
         <div class="input-group col-lg-6 col-md-9 col-sm-12">
-            <input class="image_file" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01" name="image" id="image_file">
+            <input class="image_file" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01" name="image" id="image">
         </div>
     </div>
     <div class="form-group">
