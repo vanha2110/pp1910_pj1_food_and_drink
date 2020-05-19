@@ -7,13 +7,13 @@
 <!--my-account start-->
 <section class="my-account">			
     <div class="profile-bg">
-        <img src="template_web/images/profile/bg-img.jpg" alt="Responsive image">
+        <img src="{{url('template_web/images/profile/bg-img.jpg')}}" alt="Responsive image">
         <div class="my-Profile-dt">
             <div class="container">
                 <div class="row">
                     <div class="container">							
                         <div class="profile-dpt">
-                            <img src="template_web/images/profile/dp-1.jpg" alt="">
+                            <img src="{{url('template_web/images/profile/dp-1.jpg')}}" alt="">
                         </div>
                         <div class="profile-all-dt">
                             <div class="profile-name-dt">
@@ -33,7 +33,7 @@
         <div class="row">
             @include('web.user.menu')
             
-            @include('web.user.about.main')
+            @include('web.user.profile.main')
         </div>
     </div>
 </section>
