@@ -5,23 +5,24 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductFormRequest;
-use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Category;
 use App\Repositories\Contracts\CategoryInterface;
 use App\Repositories\Contracts\ProductInterface;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
     protected $productRepository, $categoryRepository;
+    protected $productService;
 
-    public function __construct(ProductInterface $productRepository, CategoryInterface $categoryRepository)
+    public function __construct(ProductInterface $productRepository, CategoryInterface $categoryRepository, ProductService $productService)
     {
         $this->productRepository = $productRepository;
 
         $this->categoryRepository = $categoryRepository;
+
+        $this->productService = $productService;
     }
 
     /**
@@ -54,30 +55,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductFormRequest $request)
     {
-        $data = [
-            'category_id' => $request->get('category_id'),
-            'name' => $request->get('name'),
-            'slug' => Str::slug($request->get('name', '-')),
-            'image' => $request->get('image'),
-            'price' => $request->get('price'),
-            'description' => $request->get('description'),
-        ];
-
-        if($request->hasFile('image')){
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            $path = $request->file('image')->storeAs('public/img', $fileNameToStore);
-        } else {
-            $fileNameToStore = 'noimage.jpg';
-        }
-
-        
-
-        $product = $this->productRepository->create($data);
+        $this->productService->create($request);
 
         return redirect()->back();
     }
@@ -122,19 +102,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $data = [
-            'category_id' => $request->get('category_id'),
-            'name' => $request->get('name'),
-            'slug' => Str::slug($request->get('name', '-')),
-            'image' => $request->get('image'),
-            'price' => $request->get('price'),
-            'description' => $request->get('description'),
-        ];
-        $product = $this->productRepository->updateBySlug($slug, $data);
-        $product_id = $this->productRepository->findBySlug($slug)->id;
-        ProductImage::whereProductId($product_id)->delete();
+        $this->productService->update($request, $slug);
 
-        return redirect('/admin/products');
+        return redirect()->route('admin.products.index');
     }
 
     /**

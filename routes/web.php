@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('web.index');
 });
-
 Route::group(['namespace' => 'Auth'], function () {
     Route::get('/users/register', 'RegisterController@showRegistrationForm')->name('register');;
     Route::post('/users/register', 'RegisterController@register');

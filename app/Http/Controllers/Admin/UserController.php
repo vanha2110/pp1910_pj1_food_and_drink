@@ -3,29 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Repositories\Contracts\UserInterface;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserFormRequest;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
     protected $userRepository;
-
-    public function __construct(UserInterface $userRepository)
+    protected $userService;
+    
+    public function __construct(UserInterface $userRepository, UserService $userService)
     {
         $this->userRepository = $userRepository;
+        $this->userService = $userService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $users = $this->userRepository->getAll();
-
         return view('admin.users.index', compact('users'));
     }
 
@@ -45,17 +40,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
-        $data = [
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'phone' => $request->get('phone'),
-            'password' => Hash::make($request->get('password')),
-            'avatar' => 'image.jpg',
-            'role_id' => '2',
-        ];
-        $this->userRepository->create($data);
+        $this->userService->create($request);
 
         return redirect()->back();
     }
@@ -91,16 +78,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $id, $request)
     {
-        $data = [
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'phone' => $request->get('phone'),
-            'password' => Hash::make($request->get('password')),
-        ];
-
-        $this->userRepository->update($id, $data);
+        $this->userService->update($id, $request);
 
         return redirect()->route('admin.users.index');
     }

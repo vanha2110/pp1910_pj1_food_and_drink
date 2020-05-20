@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Category;
 use App\Repositories\Contracts\CategoryInterface;
+use  App\Http\Requests\CategoryFormRequest;
+use App\Services\CategoryService;
 
 class CategoryController extends Controller
 {
     protected $categoryRepository;
+    protected $categoryService;
 
-    public function __construct(CategoryInterface $categoryRepository)
+    public function __construct(CategoryInterface $categoryRepository, CategoryService $categoryService)
     {
         $this->categoryRepository = $categoryRepository;
+        $this->categoryService = $categoryService;
     }
     /**
      * Display a listing of the resource.
@@ -43,14 +45,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryFormRequest $request)
     {
-        $data = [
-            'name' => $request->get('name'),
-        ];
-        
-        $this->categoryRepository->create($data);
-
+        $this->categoryService->create($request);
         return redirect()->back();
     }
 
@@ -85,13 +82,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryFormRequest $id, $request)
     {
-        $data = [
-            'name' => $request->get('name'),
-        ];
-
-        $this->categoryRepository->update($id, $data);
+        $this->categoryService->update($id, $request);
 
         return redirect()->route('admin.categories.index');
     }

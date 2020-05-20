@@ -13,6 +13,6 @@ class CategoryRepository extends BaseRepository implements CategoryInterface
      */
     public function getModel()
     {
-        return \App\Models\Category::class;
+        return Category::class;
     }
 }

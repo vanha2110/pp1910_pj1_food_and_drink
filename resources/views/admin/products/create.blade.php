@@ -27,7 +27,7 @@
         <label for="select_categories" class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
         <select class="form-control col-md-7 col-xs-12" id="select_categories" name="category_id">
             @foreach ($categories as $category)
-            <option  value="{{$category->id}}" @if ($category->id == old('category_id'))) selected @endif>{{$category->name}}</option>
+            <option  value="{{$category->id}}" @if ($category->id == old('category_id')) selected @endif>{{$category->name}}</option>
             @endforeach
         </select>
         @if ($errors->has('category_id'))

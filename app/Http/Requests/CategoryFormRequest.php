@@ -3,15 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Repositories\Contracts\ProductInterface;
+use App\Repositories\Contracts\CategoryInterface;
 
-class ProductFormRequest extends FormRequest
+class CategoryFormRequest extends FormRequest
 {
-    protected $productRepository;
+    protected $categoryRepository;
 
-    public function __construct(ProductInterface $productRepository)
+    public function __construct(CategoryInterface $categoryRepository)
     {
-        $this->productRepository = $productRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -32,8 +32,7 @@ class ProductFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=> 'required|min:3',
-            'description'=> 'required|min:10',
+            //
         ];
     }
 }

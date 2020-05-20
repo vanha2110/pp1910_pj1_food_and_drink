@@ -5,8 +5,6 @@ namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\ProductInterface;
 use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Support\Str;
-use App\Http\Requests\ProductFormRequest;
 
 class ProductRepository extends BaseRepository implements ProductInterface
 {
@@ -16,7 +14,7 @@ class ProductRepository extends BaseRepository implements ProductInterface
      */
     public function getModel()
     {
-        return \App\Models\Product::class;
+        return Product::class;
     }
 
     public function findBySlug($slug)

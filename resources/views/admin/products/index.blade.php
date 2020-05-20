@@ -15,6 +15,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Category</th>
                 <th>Price</th>
                 <th>Description</th>
@@ -26,6 +27,7 @@
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
+                    <td><img style="width: 100%" src="/storage/img/{{$product->image}}"></td>
                     <td>{{ $product->category_id }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->description }}</td>

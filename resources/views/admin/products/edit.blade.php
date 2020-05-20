@@ -5,7 +5,7 @@
     <h1 class="h3 mb-0 text-gray-800">Edit</h1>
 </div>
 
-<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('admin.products.update', ['product_slug' => $product->slug])}}">
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('admin.products.update', ['product_slug' => $product->slug])}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name<span class="required">*</span></label>

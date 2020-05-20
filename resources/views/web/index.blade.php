@@ -3,7 +3,11 @@
 @section('content')
 <!--banner start-->
 <section class="block-preview">
+<<<<<<< HEAD
     <div class="cover-banner" style="background-image: url('template_web/images/homepage/banner.jpg')"></div>
+=======
+    <div class="cover-banner" style="background-image: url(template_web/images/homepage/banner.jpg)"></div>
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
     <div class="container">
         <div class="row">	
             <div class="col-lg-8 col-md-6 col-sm-12">
@@ -11,6 +15,10 @@
                     <h1 class="title">Choose, Order and Checkout</h1>
                     <h6 class="exeption">Specify your address to suggest you the fast delivery</h6>
                     <p>Get our services from 24 hours.</p>
+<<<<<<< HEAD
+=======
+                    <a class="bnr-btn btn-link" href="#">Go To Meal</a>
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                 </div>
             </div>
         </div>
@@ -34,6 +42,7 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-1.jpg')}}" alt="">
                         </div>
                         {{-- <div class="logo-img">
@@ -41,6 +50,15 @@
                         </div> --}}
                         <div class="top-text">
                             {{-- <div class="heading"><h4><a href="meal_detail.html">Bonn Burgur</a></h4></div> --}}
+=======
+                            <img src="template_web/images/homepage/meals/img-1.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-1.jpg" alt="">
+                        </div>
+                        <div class="top-text">
+                            <div class="heading"><h4><a href="meal_detail.html">Bonn Burgur</a></h4></div>
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                             <div class="sub-heading">
                             <h5><a href="restaurant_detail.html">Rooster</a></h5>
                             <p>$5.00</p>
@@ -69,10 +87,17 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-2.jpg')}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-2.jpg')}}" alt="">
+=======
+                            <img src="template_web/images/homepage/meals/img-2.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-2.jpg" alt="">
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                         </div>
                         <div class="top-text">
                             <div class="heading"><h4><a href="meal_detail.html">Two Burgurs</a></h4></div>
@@ -104,10 +129,17 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-3.jpg')}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-3.jpg')}}" alt="">
+=======
+                            <img src="template_web/images/homepage/meals/img-3.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-3.jpg" alt="">
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                         </div>
                         <div class="top-text">
                             <div class="heading"><h4><a href="meal_detail.html">Large Cheese Pizza...</a></h4></div>
@@ -139,10 +171,17 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-4.jpg')}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-4.jpg')}}" alt="">
+=======
+                            <img src="template_web/images/homepage/meals/img-4.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-4.jpg" alt="">
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                         </div>
                         <div class="top-text">
                             <div class="heading"><h4><a href="meal_detail.html">Hakka Noodles</a></h4></div>
@@ -174,10 +213,17 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-5.jpg')}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-5.jpg')}}" alt="">
+=======
+                            <img src="template_web/images/homepage/meals/img-5.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-5.jpg" alt="">
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                         </div>
                         <div class="top-text">
                             <div class="heading"><h4><a href="meal_detail.html">Cappuccino Coffee</a></h4></div>
@@ -209,10 +255,17 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-6.jpg')}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-6.jpg')}}" alt="">
+=======
+                            <img src="template_web/images/homepage/meals/img-6.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-6.jpg" alt="">
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                         </div>
                         <div class="top-text">
                             <div class="heading"><h4><a href="meal_detail.html">Choclate Cake</a></h4></div>
@@ -244,10 +297,17 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-7.jpg')}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-7.jpg')}}" alt="">
+=======
+                            <img src="template_web/images/homepage/meals/img-7.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-7.jpg" alt="">
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                         </div>
                         <div class="top-text">
                             <div class="heading"><h4><a href="meal_detail.html"> Indian Dosa </a></h4></div>
@@ -279,10 +339,17 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
+<<<<<<< HEAD
                             <img src="{{url('template_web/images/homepage/meals/img-8.jpg')}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-8.jpg')}}" alt="">
+=======
+                            <img src="template_web/images/homepage/meals/img-8.jpg" alt="">
+                        </div>
+                        <div class="logo-img">
+                            <img src="template_web/images/homepage/meals/logo-8.jpg" alt="">
+>>>>>>> 53accb0d5cdc433f9898196ff473751fb66576b5
                         </div>
                         <div class="top-text">
                             <div class="heading"><h4><a href="meal_detail.html">Double Tikki Burgur</a></h4></div>

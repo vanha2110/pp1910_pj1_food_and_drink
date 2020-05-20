@@ -13,6 +13,6 @@ class UserRepository extends BaseRepository implements UserInterface
      */
     public function getModel()
     {
-        return \App\Models\User::class;
+        return User::class;
     }
 }
