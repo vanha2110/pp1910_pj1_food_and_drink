@@ -29,3 +29,7 @@ Route::group(['namespace' => 'Auth'], function () {
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/account', 'AccountController@index')->name('account');
 });
+
+Route::get('/about', 'HomeController@about');
+Route::get('/contact', 'HomeController@contact');
+Route::post('/contact', 'HomeController@contactSend')->name('contact');
