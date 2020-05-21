@@ -15,19 +15,29 @@ class UserService
 
     public function create(Request $request)
     {
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar')->getClientOriginalName();
+            $filename = pathinfo($file, PATHINFO_FILENAME);
+            $extension = $request->file('avatar')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $request->file('avatar')->storeAs('public/img', $fileNameToStore);
+            
+        }
+
         $data = [
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'phone' => $request->get('phone'),
             'password' => Hash::make($request->get('password')),
-            'avatar' => 'image.jpg',
+            'avatar' => $fileNameToStore,
             'role_id' => '2',
+            'address' => '',
         ];
 
         $this->userRepository->create($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $id, $request)
     {
         $data = [
             'name' => $request->get('name'),
@@ -36,6 +46,15 @@ class UserService
             'password' => Hash::make($request->get('password')),
         ];
 
-        $this->userRepository->update($id, $data);
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar')->getClientOriginalName();
+            $filename = pathinfo($file, PATHINFO_FILENAME);
+            $extension = $request->file('avatar')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $request->file('avatar')->storeAs('public/img', $fileNameToStore);
+            $data['avatar'] = $fileNameToStore;
+        }
+        
+        $this->userRepository->update($data, $id);
     }
 }

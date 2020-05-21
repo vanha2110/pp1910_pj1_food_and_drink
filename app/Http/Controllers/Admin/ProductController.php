@@ -59,7 +59,7 @@ class ProductController extends Controller
     {
         $this->productService->create($request);
 
-        return redirect()->back();
+        return redirect()->back()->with("success","Create Product Successfully !");
     }
 
     /**

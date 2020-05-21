@@ -33,6 +33,8 @@ class ProductFormRequest extends FormRequest
     {
         return [
             'name'=> 'required|min:3',
+            'image' => 'required|mimes:jpeg,png,jpg',
+            'price' => 'required|min:5',
             'description'=> 'required|min:10',
         ];
     }

@@ -94,6 +94,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->userRepository->delete($id);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('success', 'Delete successful');
     }
 }
