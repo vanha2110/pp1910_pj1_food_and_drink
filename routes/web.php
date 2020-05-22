@@ -30,4 +30,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/account', 'AccountController@index')->name('account');
     Route::get('/account/edit-profile', 'AccountController@editProfile')->name('edit_profile');
     Route::post('/account/edit-profile', 'AccountController@updateProfile')->name('update_profile');
+    Route::get('/about', 'HomeController@about');
+    Route::get('/contact', 'HomeController@contact');
+    Route::post('/contact', 'HomeController@contactSend')->name('contact');
 });

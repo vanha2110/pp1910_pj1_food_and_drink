@@ -39,13 +39,10 @@ class UserService
 
     public function update(Request $id, $request)
     {
-        $data = [
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'phone' => $request->get('phone'),
-            'password' => Hash::make($request->get('password')),
-        ];
-
+        $request->all();
+        $data = $request->all();
+        $data['password'] = Hash::make($request->get('password'));
+        
         if($request->hasFile('avatar')){
             $file = $request->file('avatar')->getClientOriginalName();
             $filename = pathinfo($file, PATHINFO_FILENAME);
@@ -55,6 +52,6 @@ class UserService
             $data['avatar'] = $fileNameToStore;
         }
         
-        $this->userRepository->update($data, $id);
+        $this->userRepository->update($id, $data);
     }
 }

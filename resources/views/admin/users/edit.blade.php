@@ -8,29 +8,35 @@
             <div class="form-group m-form__group row">
                 <label class="col-form-label col-lg-3 col-sm-12" for="exampleInputEmail1">Name</label>
                 <div class="col-lg-6 col-md-9 col-sm-12">
-                    <input type="text" name="name" value="{{ $user->name }}" class="form-control m-input" id="exampleInputEmail1">
+                <input type="text" name="name" value="{{$user->name}}" class="form-control m-input" id="exampleInputEmail1">
                 </div>
             </div>
+        </div>
+        <div class="m-portlet__body">
             <div class="form-group m-form__group row">
                 <label class="col-form-label col-lg-3 col-sm-12" for="exampleInputEmail1">Email</label>
                 <div class="col-lg-6 col-md-9 col-sm-12">
                     <input type="email" name="email" value="{{ $user->email }}" class="form-control m-input" id="exampleInputEmail1">
                 </div>
-            </div>
-            <div class="m-portlet__body">
-                <div class="form-group m-form__group row">
-                    <label class="col-form-label col-lg-3 col-sm-12" for="exampleInputEmail1">Avatar</label>
-                    <div class="col-lg-6 col-md-9 col-sm-12">
-                        <input class="image_file" class="custom-file-input" type="file" name="avatar" id="exampleInputEmail1">
-                    </div>
+            </div>    
+        </div>    
+        <div class="m-portlet__body">
+            <div class="form-group m-form__group row">
+                <label class="col-form-label col-lg-3 col-sm-12" for="exampleInputEmail1">Avatar</label>
+                <div class="col-lg-6 col-md-9 col-sm-12">
+                    <input class="image_file" class="custom-file-input" type="file" name="avatar" id="exampleInputEmail1">
                 </div>
             </div>
+        </div>
+        <div class="m-portlet__body">
             <div class="form-group m-form__group row">
                 <label class="col-form-label col-lg-3 col-sm-12" for="exampleInputEmail1">Phone</label>
                 <div class="col-lg-6 col-md-9 col-sm-12">
                     <input type="text" name="phone" value="{{ $user->phone }}" class="form-control m-input" id="exampleInputEmail1">
                 </div>
             </div>
+        </div>
+        <div class="m-portlet__body">
             <div class="form-group m-form__group row">
                 <label class="col-form-label col-lg-3 col-sm-12" for="exampleInputEmail1">Password</label>
                 <div class="col-lg-6 col-md-9 col-sm-12">
