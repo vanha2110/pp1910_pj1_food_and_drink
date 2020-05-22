@@ -17,3 +17,24 @@
         </div>
     </div>
 </section>
+<section class="my-account">			
+    <div class="profile-bg">
+        <img src="{{url('template_web/images/profile/bg-img.jpg')}}" alt="Responsive image">
+        <div class="my-Profile-dt">
+            <div class="container">
+                <div class="row">
+                    <div class="container">							
+                        <div class="profile-dpt">
+                            <img style="width: 100%" src="/storage/img/{{Auth::user()->avatar}}" alt="">
+                        </div>
+                        <div class="profile-all-dt">
+                            <div class="profile-name-dt">
+                                <h1>{{Auth::user()->name}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
