@@ -8,7 +8,11 @@
         <i class="fa fa-plus-square" aria-hidden="true"></i> Tạo mới
     </a>
 </div>
-
+@if (session('success'))
+<div class="alert alert-success" role="alert" style="text-align: center;">
+    {{ session('success') }}
+</div>
+@endif
 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('admin.products.create')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -16,12 +20,22 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" name="name" required="required" class="form-control col-md-7 col-xs-12">
         </div>
+        @if ($errors->has('name'))
+            <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
+            </span>
+        @endif
     </div>
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">Price <span class="required">*</span></label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" name="price" required="required" class="form-control col-md-7 col-xs-12">
         </div>
+        @if ($errors->has('price'))
+            <span class="help-block">
+                <strong>{{ $errors->first('price') }}</strong>
+            </span>
+        @endif
     </div>
     <div class="form-group">
         <label for="select_categories" class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
@@ -39,12 +53,22 @@
         <div class="input-group col-lg-6 col-md-9 col-sm-12">
             <input class="image_file" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01" name="image" id="image">
         </div>
+        @if ($errors->has('image'))
+            <span class="help-block">
+                <strong>{{ $errors->first('image') }}</strong>
+            </span>
+        @endif
     </div>
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description <span class="required">*</span></label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             <textarea name="description" required="required" class="form-control col-md-7 col-xs-12" name="description"></textarea>
         </div>
+        @if ($errors->has('description'))
+            <span class="help-block">
+                <strong>{{ $errors->first('description') }}</strong>
+            </span>
+        @endif
     </div>
     <div class="ln_solid"></div>
     <div class="form-group">

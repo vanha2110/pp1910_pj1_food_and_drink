@@ -28,6 +28,7 @@ class ProductService
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             $request->file('image')->storeAs('public/img', $fileNameToStore);
+            $data['image'] = $fileNameToStore;
             
             $data['image'] = $fileNameToStore;
         }
@@ -37,14 +38,21 @@ class ProductService
 
     public function update(Request $request, $slug)
     {
+        $request->all();
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->get('name', '-'));
+
         if($request->hasFile('image')){
             $file = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($file, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             $request->file('image')->storeAs('public/img', $fileNameToStore);
+            $data['image'] = $fileNameToStore;
             
         }
+        
+        $this->productRepository->create($data);
 
         $data = [
             'category_id' => $request->get('category_id'),

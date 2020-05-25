@@ -22,9 +22,8 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/users/login', 'LoginController@showLoginForm')->name('login');
     Route::post('/users/login', 'LoginController@login');
     Route::get('/users/logout', 'LogoutController@logout')->name('logout');
-    
     Route::post('/account/password', 'ChangePasswordController@change')->name('change_password');
-    Route::get('/account/password', 'ChangePasswordController@index');
+    Route::get('/account/password', 'ChangePasswordController@index')->name('change_password');
 });
 
 Route::group(['namespace' => 'Web'], function () {

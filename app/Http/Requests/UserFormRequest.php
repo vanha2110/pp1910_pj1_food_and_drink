@@ -34,7 +34,7 @@ class UserFormRequest extends FormRequest
         return [
             'name' => 'required|min:3',
             'email' => 'required',
-            'avatar' => 'required|mimes:jpg,jpeg,png',
+            'avatar' => 'mimes:jpg,jpeg,png',
             'phone' => 'required|min:5',
         ];
     }

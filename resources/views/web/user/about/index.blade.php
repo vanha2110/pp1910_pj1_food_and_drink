@@ -3,7 +3,7 @@
 @section('content')
 <!--title-bar start-->
 @include('web.user.title_bar')
-<!--title-bar end-->
+<!--title-bar end-->	
 <!--my-account-tabs start-->
 <section class="all-profile-details">
     <div class="container">

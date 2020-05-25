@@ -44,7 +44,7 @@ class UserController extends Controller
     {
         $this->userService->create($request);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Create User Successfully');
     }
 
     /**
@@ -80,6 +80,7 @@ class UserController extends Controller
      */
     public function update(UserFormRequest $id, $request)
     {
+        
         $this->userService->update($id, $request);
 
         return redirect()->route('admin.users.index');
@@ -94,6 +95,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->userRepository->delete($id);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('success', 'Delete successful');
     }
 }
