@@ -32,7 +32,10 @@ class UserFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3',
+            'email' => 'required',
+            'avatar' => 'required|mimes:jpg,jpeg,png',
+            'phone' => 'required|min:5',
         ];
     }
 }
