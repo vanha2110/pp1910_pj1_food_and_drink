@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Requests\ProductFormRequest;
-use App\Models\ProductImage;
-use App\Models\Category;
 use App\Models\Product;
 use App\Repositories\Contracts\CategoryInterface;
 use App\Repositories\Contracts\ProductInterface;
 use App\Services\ProductService;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -25,7 +22,6 @@ class ProductController extends Controller
 
         $this->productService = $productService;
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -33,9 +29,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('company')->paginate(8);
+        $products = Product::paginate(9);
 
-        return view('admin.products.index', compact('products'));
+        return view('web.products.index', compact('products'));
     }
 
     /**
@@ -45,9 +41,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = $this->categoryRepository->getAll();
-
-        return view('admin.products.create', compact('categories'));
+        //
     }
 
     /**
@@ -56,11 +50,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductFormRequest $request)
+    public function store(Request $request)
     {
-        $this->productService->create($request);
-
-        return redirect()->back()->with("success","Create Product Successfully !");
+        //
     }
 
     /**
@@ -80,18 +72,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
-        $product = $this->productRepository->findBySlug($slug);
-        $categories = Category::all();
-        $product_images = ProductImage::whereProductId($product->id)->pluck('image');
-
-        return view('admin.products.edit',
-            compact(
-                'product',
-                'categories',
-            )
-        );
+        //
     }
 
     /**
@@ -101,11 +84,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $slug)
+    public function update(Request $request, $id)
     {
-        $this->productService->update($request, $slug);
-
-        return redirect()->route('admin.products.index');
+        //
     }
 
     /**
@@ -114,17 +95,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $this->productRepository->deleteBySlug($slug);
-
-        return redirect()->route('admin.products.index');
+        //
     }
-
-    // public function storeImage(Request $request)
-    // {
-    //     $response = $this->productRepository->storeImage($request);
-
-    //     return response()->json($resqonse);
-    // }
 }
