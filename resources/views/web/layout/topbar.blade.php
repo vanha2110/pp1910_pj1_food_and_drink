@@ -22,7 +22,6 @@
                                         <a  class="dropdown-toggle-no-caret" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }} <i class="fas fa-caret-down"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
                                             <a class="dropdown-item" href="{{ route('account')}}"> My Profile</a>
-                                            {{-- <a class="dropdown-item" href="setting.html"> Setting</a> --}}
                                             <a class="dropdown-item" href="{{ route('logout') }}"> 
                                                 Logout
                                                 <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">

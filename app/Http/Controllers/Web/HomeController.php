@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //
     }
 
     /**
@@ -23,6 +24,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('/');
+    }
+
+    
+    public function about()
+    {
+        return view('web.pages.about');
+    }
+
+    public function contact()
+    {
+        return view('web.pages.contact');
+    }
+
+    public function contactSend(Request $request)
+    {
+        Contact::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'content' => $request->get('content'),
+        ]);
+
+        return back()->with('success', 'Thanks for contacting us!');
     }
 }
+
+
+
+
