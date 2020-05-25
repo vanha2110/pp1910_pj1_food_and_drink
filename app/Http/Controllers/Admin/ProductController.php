@@ -7,20 +7,18 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductFormRequest;
 use App\Models\ProductImage;
 use App\Models\Category;
-use App\Repositories\Contracts\CategoryInterface;
+use App\Models\Product;
 use App\Repositories\Contracts\ProductInterface;
 use App\Services\ProductService;
 
 class ProductController extends Controller
 {
-    protected $productRepository, $categoryRepository;
+    protected $productRepository;
     protected $productService;
 
-    public function __construct(ProductInterface $productRepository, CategoryInterface $categoryRepository, ProductService $productService)
+    public function __construct(ProductInterface $productRepository, ProductService $productService)
     {
         $this->productRepository = $productRepository;
-
-        $this->categoryRepository = $categoryRepository;
 
         $this->productService = $productService;
     }
@@ -32,7 +30,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = $this->productRepository->getAll();
+        $products = Product::all(); 
 
         return view('admin.products.index', compact('products'));
     }
@@ -44,7 +42,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = $this->categoryRepository->getAll();
+        $categories = Category::all();
 
         return view('admin.products.create', compact('categories'));
     }

@@ -3,20 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\CategoryInterface;
 use  App\Http\Requests\CategoryFormRequest;
-use App\Services\CategoryService;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    protected $categoryRepository;
-    protected $categoryService;
-
-    public function __construct(CategoryInterface $categoryRepository, CategoryService $categoryService)
-    {
-        $this->categoryRepository = $categoryRepository;
-        $this->categoryService = $categoryService;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = $this->categoryRepository->getAll();
-
+        $categories = Category::all(); 
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -47,7 +37,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryFormRequest $request)
     {
-        $this->categoryService->create($request);
+        Category::create($request->all());
         return redirect()->back();
     }
 
@@ -70,7 +60,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = $this->categoryRepository->find($id);
+        $category = Category::find($id);
 
         return view('admin.categories.edit', compact('category'));
     }
@@ -82,9 +72,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryFormRequest $id, $request)
+    public function update(CategoryFormRequest $request, $id)
     {
-        $this->categoryService->update($id, $request);
+        Category::find($id)->update($request->all());
 
         return redirect()->route('admin.categories.index');
     }
@@ -97,7 +87,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $this->categoryRepository->delete($id);
+        Category::find($id)->delete();
 
         return redirect()->route('admin.categories.index');
     }

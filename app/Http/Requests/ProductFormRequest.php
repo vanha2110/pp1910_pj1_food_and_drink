@@ -34,6 +34,7 @@ class ProductFormRequest extends FormRequest
         return [
             'name'=> 'required|min:3',
             'description'=> 'required|min:10',
+            'slug' 
         ];
     }
 }
