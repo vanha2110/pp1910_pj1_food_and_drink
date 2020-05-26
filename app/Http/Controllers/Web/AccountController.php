@@ -20,6 +20,11 @@ class AccountController extends Controller
         return view('web.user.account');
     }
 
+    public function editProfile()
+    {
+        return view('web.user.profile.index');
+    }
+
     public function updateProfile(UserFormRequest $request)
     {
         $this->userService->updateProfile($request);
