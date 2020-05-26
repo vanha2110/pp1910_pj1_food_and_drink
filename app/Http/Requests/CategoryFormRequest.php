@@ -7,13 +7,6 @@ use App\Repositories\Contracts\CategoryInterface;
 
 class CategoryFormRequest extends FormRequest
 {
-    protected $categoryRepository;
-
-    public function __construct(CategoryInterface $categoryRepository)
-    {
-        $this->categoryRepository = $categoryRepository;
-    }
-
     /**
      * Determine if the user is authorized to make this request.
      *

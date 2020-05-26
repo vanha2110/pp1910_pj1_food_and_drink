@@ -19,11 +19,6 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton(
-            \App\Repositories\Contracts\CategoryInterface::class,
-            \App\Repositories\Eloquent\CategoryRepository::class,
-        );
-        
-        $this->app->singleton(
             \App\Repositories\Contracts\ProductInterface::class,
             \App\Repositories\Eloquent\ProductRepository::class,
         );
