@@ -22,11 +22,12 @@ class ProductRepository extends BaseRepository implements ProductInterface
         return $this->_model::whereSlug($slug)->firstOrFail();
     }
 
-    public function findByCategory($slug)
+    public function findByCategory($id)
     {
-        $category = Category::whereSlug($slug)->firstOrFail();
+        
+        $category = Category::whereId($id)->firstOrFail();
 
-        return $this->_model::where('category_id', $category->id)->pagiante(20);
+        return $this->_model::where('category_id', $category->id);
     }
 
     public function deleteBySlug($slug)

@@ -33,7 +33,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('company')->paginate(8);
+        $products = $this->productRepository->getAll();
 
         return view('admin.products.index', compact('products'));
     }

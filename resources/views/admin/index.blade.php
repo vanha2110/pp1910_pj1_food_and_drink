@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <h1 class="h3 mb-0 text-gray-800">{{__('Dashboard')}}</h1>
     <!-- <a href="template_admin/#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 </div>
 
@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <a href="#" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Orders</a>
+                        <a href="#" class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('Order')}}</a>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                     </div>
                     <div class="col-auto">
@@ -32,7 +32,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <a href="#" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Posts</a>
+                        <a href="#" class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('Post')}}</a>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                     </div>
                     <div class="col-auto">
@@ -49,7 +49,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <a class="text-xs font-weight-bold text-success text-uppercase mb-1" href="#">Products</a>
+                        <a class="text-xs font-weight-bold text-success text-uppercase mb-1" href="#">{{__('Product')}}</a>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                     </div>
                     <div class="col-auto">
@@ -66,7 +66,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <a class="text-xs font-weight-bold text-info text-uppercase mb-1" href="#">Users</a>
+                        <a class="text-xs font-weight-bold text-info text-uppercase mb-1" href="#">{{__('Users')}}</a>
                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
                     </div>
                     <div class="col-auto">

@@ -2,7 +2,7 @@
     <div class="col-lg-12 col-md-12 m-left m-right">
         <div class="all-meals-show">
             <div class="new-heading">
-                <h1> All Products </h1>
+                <h1> @lang('Products') </h1>
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
                     <div class="top">
                         <a href="meal_detail.html"><div class="bg-gradient"></div></a>
                         <div class="top-img">
-                            <img style="width: 100%" src="/storage/img/{{$product->image}}" alt="">
+                            <img src="/storage/img/{{$product->image}}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-1.jpg')}}" alt="">
@@ -27,11 +27,12 @@
                     </div>
                     <div class="bottom">
                         <div class="bottom-text">
-                            <div class="delivery"><i class="fas fa-shopping-cart"></i>Delivery Free : Free</div>
-                            <div class="time"><i class="far fa-clock"></i>Delivery Time : 30 Min</div>
-                            <div class="star">Rate							
-                                <span>4.5</span> 
-                                <div class="comments"><a href="#">Cart Now <i class="fas fa-shopping-cart"></i></a></div>
+                            <div class="delivery"><i class="fas fa-shopping-cart"></i>@lang('Delivery Free : Free')</div>
+                            <div class="time"><i class="far fa-clock"></i>@lang('Delivery Time : 30 Min')</div>
+                            <div class="star">							
+                                <span>4.5</span>
+                                <i class="fas fa-star"></i> 
+                                <div class="comments"><a href="#">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
                             </div>								
                         </div>
                     </div>  
