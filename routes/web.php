@@ -33,4 +33,5 @@ Route::group(['namespace' => 'Web'], function () {
     Route::post('/contact', 'HomeController@contactSend')->name('contact');
     Route::get('/products', 'ProductController@index')->name('product');
     Route::get('/product-of-category/{id}', 'ProductController@filterByCategory')->name('productcategory');
+    Route::get('/product/{product_slug}', 'ProductController@show')->name('product_detail');
 });
