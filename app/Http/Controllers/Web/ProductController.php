@@ -44,4 +44,17 @@ class ProductController extends Controller
 
         return view('web.products.index', compact('products', 'categories'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($slug)
+    {
+        $product = Product::whereSlug($slug)->firstOrFail();
+
+        return view('web.products.detail', compact('product'));
+    }
 }
