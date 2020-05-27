@@ -1,7 +1,7 @@
 @extends('admin.layout.app')
 
 @section('content')
-<form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{route('admin.users.update', ['user_id' => $user->id])}}" enctype="multipart/form-data">
+<form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{route('admin.users.update', ['user' => $user->id])}}" enctype="multipart/form-data">
         
         @csrf
         <div class="m-portlet__body">

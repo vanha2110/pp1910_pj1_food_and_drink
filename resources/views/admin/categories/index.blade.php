@@ -23,8 +23,8 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
                     <td>
-                        <a href="{{route('admin.categories.edit', ['category_id' => $category->id])}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('admin.categories.delete', ['category_id' => $category->id])}}"><i class="fa fa-trash" ></i></a>
+                        <a href="{{route('admin.categories.edit', ['category' => $category->id])}}"><i class="fa fa-edit"></i></a>
+                        <a href="{{route('admin.categories.destroy', ['category' => $category->id])}}"><i class="fa fa-trash" ></i></a>
                     </td>
                 </tr>
             @endforeach
