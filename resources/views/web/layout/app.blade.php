@@ -19,7 +19,11 @@
 	<link href="{{url('template_web/css/style.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/responsive.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/mega.menu.css')}}" rel="stylesheet">
-	<link href="{{url('template_web/css/owlslider.css')}}" rel="stylesheet">
+    <link href="{{url('template_web/css/owlslider.css')}}" rel="stylesheet">
+    <link href="{{url('template_web/css/thumbnail.slider.css')}}" rel="stylesheet">
+	<link href="{{url('template_web/css/datepicker.css')}}" rel="stylesheet">
+	<link href="{{url('template_web/css/bootstrap-select.css')}}" rel="stylesheet">
+	<link href="{{url('template_web/css/bootstrap-rating.css')}}" rel="stylesheet">
     
 	<!-- Owl Carousel for this template-->
 	<link href="{{url('template_web/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
@@ -43,9 +47,30 @@
     <script src="{{url('template_web/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!--Core plugin JavaScript-->
     <script src="{{url('template_web/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-	 <!--Assect scripts for this page-->
+	<!--Assect scripts for this page-->
 	<script src="{{url('template_web/vendor/OwlCarousel/owl.carousel.js')}}"></script>
 	<script src="{{url('template_web/js/owlslider.js')}}"></script>
-	
+	<script type="text/javascript" src="{{url('template_web/js/bootstrap-rating.js')}}"></script>
+    
+    <script src="{{url('template_web/assets/owlcarousel/owl.carousel.js')}}"></script>
+	<script src="{{url('template_web/js/custom.js')}}"></script>
+	<script src="{{url('template_web/js/thumbnail.slider.js')}}"></script>
+	<script src="{{url('template_web/js/bootstrap-datepicker.js')}}"></script>
+	<script src="{{url('template_web/js/bootstrap-select.js')}}"></script>
+	<script>
+	$(document).ready(function(){
+		$('#qty_input').prop('disabled', true);
+		$('#plus-btn').click(function(){
+    	$('#qty_input').val(parseInt($('#qty_input').val()) + 1 );
+    	    });
+        $('#minus-btn').click(function(){
+    	$('#qty_input').val(parseInt($('#qty_input').val()) - 1 );
+    	if ($('#qty_input').val() == 0) {
+			$('#qty_input').val(1);
+		}
+
+		});
+	});
+	</script>	
   </body>
 </html>

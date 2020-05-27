@@ -11,7 +11,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="all-meal">
                     <div class="top">
-                        <a href="meal_detail.html"><div class="bg-gradient"></div></a>
+                        <a href="{{route('product_detail', ['slug' => $product->slug])}}"><div class="bg-gradient"></div></a>
                         <div class="top-img">
                             <img src="/storage/img/{{$product->image}}" alt="">
                         </div>
@@ -19,9 +19,9 @@
                             <img src="{{url('template_web/images/homepage/meals/logo-1.jpg')}}" alt="">
                         </div>
                         <div class="top-text">
-                            <div class="heading"><h4><a href="meal_detail.html">{{ $product->name }}</a></h4></div>
+                            <div class="heading"><h4><a href="{{route('product_detail', ['slug' => $product->slug])}}">{{ $product->name }}</a></h4></div>
                             <div class="sub-heading">
-                            <p>{{ $product->price }} VNĐ</p>
+                            <p>{{ number_format($product->price) }} VNĐ</p>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <div class="star">							
                                 <span>4.5</span>
                                 <i class="fas fa-star"></i> 
-                                <div class="comments"><a href="#">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
+                            <div class="comments"><a href="{{ route('product_cart', ['id' => $product->id]) }}">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
                             </div>								
                         </div>
                     </div>  

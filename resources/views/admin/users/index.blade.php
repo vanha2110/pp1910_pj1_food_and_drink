@@ -28,8 +28,8 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->phone }}</td>
                     <td>
-                        <a href="{{route('admin.users.edit', ['user_id' => $user->id])}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('admin.users.delete', ['user_id' => $user->id])}}"><i class="fa fa-trash" ></i></a>
+                        <a href="{{route('admin.users.edit', ['user' => $user->id])}}"><i class="fa fa-edit"></i></a>
+                        <a href="{{route('admin.users.destroy', ['user' => $user->id])}}"><i class="fa fa-trash" ></i></a>
                     </td>
                 </tr>
             @endforeach

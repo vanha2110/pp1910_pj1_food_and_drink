@@ -1,7 +1,7 @@
 @extends('admin.layout.app')
 
 @section('content')
-<form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{route('admin.categories.update', ['category_id' => $category->id])}}">
+<form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{route('admin.categories.update', ['category' => $category->id])}}">
         
         @csrf
         <div class="m-portlet__body">

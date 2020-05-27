@@ -27,6 +27,11 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Contracts\ProductInterface::class,
             \App\Repositories\Eloquent\ProductRepository::class,
         );
+
+        $this->app->singleton(
+            \App\Repositories\Contracts\PostInterface::class,
+            \App\Repositories\Eloquent\PostRepository::class,
+        );
     }
 
     /**

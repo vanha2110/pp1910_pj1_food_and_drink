@@ -28,9 +28,13 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/account', 'AccountController@index')->name('account');
     Route::get('/account/edit-profile', 'AccountController@editProfile')->name('edit_profile');
     Route::post('/account/edit-profile', 'AccountController@updateProfile')->name('update_profile');
+
     Route::get('/about', 'HomeController@about')->name('about');
     Route::get('/contact', 'HomeController@contact');
     Route::post('/contact', 'HomeController@contactSend')->name('contact');
+    
     Route::get('/products', 'ProductController@index')->name('product');
     Route::get('/product-of-category/{id}', 'ProductController@filterByCategory')->name('productcategory');
+    Route::get('/product/{slug}', 'ProductController@show')->name('product_detail');
+    Route::get('/add-to-cart/{id}', 'ProductController@addToCart')->name('product_cart');
 });

@@ -77,6 +77,7 @@
   <script src="{{url('template_admin/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{url('template_admin/js/dataTables.bootstrap4.min.js')}}"></script>
   <script src="{{url('template_admin/js/demo/datatables-demo.js')}}"></script>
+  @yield('stylesheets')
 </body>
 
 </html>

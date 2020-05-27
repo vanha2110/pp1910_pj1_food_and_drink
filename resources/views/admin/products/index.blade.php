@@ -32,8 +32,8 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->description }}</td>
                     <td>
-                        <a href="{{route('admin.products.edit', ['product_slug' => $product->slug])}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('admin.products.delete', ['product_slug' => $product->slug])}}"><i class="fa fa-trash" ></i></a>
+                        <a href="{{route('admin.products.edit', ['product' => $product->slug])}}"><i class="fa fa-edit"></i></a>
+                        <a href="{{route('admin.products.destroy', ['product' => $product->slug])}}"><i class="fa fa-trash" ></i></a>
                     </td>
                 </tr>
             @endforeach
