@@ -6,7 +6,7 @@ interface ProductInterface
 {
     public function findBySlug($slug);
 
-    public function findByCategory($slug);
+    public function findByCategory($id);
 
     public function deleteBySlug($slug);
 

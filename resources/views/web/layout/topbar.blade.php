@@ -5,25 +5,26 @@
                     <div class="col-md-4">
                         <div class="topbar-left text-center text-md-left">
                             <ul class="list-inline">
-                                <li> <a href="contact.html"> Contact </a></li>
-                                <li> <a href="about.html"> About Us </a></li>
-                                <li> <a href="our_blog.html"> Blog </a></li>
+                                <li> <a href="{{route('contact')}}"> @lang('Contact') </a></li>
+                                <li> <a href="{{route('about')}}"> @lang('About Us') </a></li>
+                                <li> <a href="our_blog.html"> @lang('Blog') </a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="topbar-right text-center text-md-right">
                             <ul class="list-inline">									
-                                <li><a href="#"><i class="fas fa-shopping-cart"></i>Orders <span class="badge badge-secondary">3</span></a></li>										
+                                <li><a href="#"><i class="fas fa-shopping-cart"></i>@lang('Orders') <span class="badge badge-secondary">3</span></a></li>										
                                 @if (Auth::guest())
-                                    <li><a href="{{ route('login') }}">Đăng nhập</a></li>
+                                    <li><a href="{{ route('login') }}">@lang('Login')</a></li>
                                 @else                                        
                                     <li class="nav-item dropdown">
                                         <a  class="dropdown-toggle-no-caret" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }} <i class="fas fa-caret-down"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
-                                            <a class="dropdown-item" href="{{ route('account')}}"> My Profile</a>
+                                            <a class="dropdown-item" href="{{ route('account')}}"> @lang('My Profile')</a>
+                                            {{-- <a class="dropdown-item" href="setting.html"> Setting</a> --}}
                                             <a class="dropdown-item" href="{{ route('logout') }}"> 
-                                                Logout
+                                                @lang('Logout')
                                                 <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">
                                                     {{ csrf_field() }}
                                                 </form>
@@ -43,7 +44,7 @@
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <div class="menu-left text-center text-md-left">
                         <div class="logo-box">
-                            <a href="index.html"><img src="template_web/images/logo.svg" alt=""></a>
+                            <a href="{{route('index')}}"><img src="{{url('template_web/images/logo.svg')}}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -53,10 +54,10 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto nav-text">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.html">Home </a>
+                                        <a class="nav-link" href="{{route('index')}}">@lang('Home') </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.html">Menu </a>
+                                        <a class="nav-link" href="{{route('product')}}">@lang('Menu') </a>
                                     </li>
                                 </ul>											
                             </div>

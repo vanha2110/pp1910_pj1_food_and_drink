@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('web.index');
-});
 Route::group(['namespace' => 'Auth'], function () {
     Route::get('/users/register', 'RegisterController@showRegistrationForm')->name('register');;
     Route::post('/users/register', 'RegisterController@register');
@@ -27,10 +24,14 @@ Route::group(['namespace' => 'Auth'], function () {
 });
 
 Route::group(['namespace' => 'Web'], function () {
+    Route::get('/', 'HomeController@index')->name('index');
     Route::get('/account', 'AccountController@index')->name('account');
     Route::get('/account/edit-profile', 'AccountController@editProfile')->name('edit_profile');
     Route::post('/account/edit-profile', 'AccountController@updateProfile')->name('update_profile');
-    Route::get('/about', 'HomeController@about');
+    Route::get('/about', 'HomeController@about')->name('about');
     Route::get('/contact', 'HomeController@contact');
     Route::post('/contact', 'HomeController@contactSend')->name('contact');
+    Route::get('/products', 'ProductController@index')->name('product');
+    Route::get('/product-of-category/{id}', 'ProductController@filterByCategory')->name('productcategory');
+    Route::get('/product/{slug}', 'ProductController@show')->name('prodcut_detail');
 });
