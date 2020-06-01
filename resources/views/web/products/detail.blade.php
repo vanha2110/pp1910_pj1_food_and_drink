@@ -61,7 +61,7 @@
 							<a href="javascript:;" onclick="myFunction()" id="readBtn">@lang('See All')</a>
 						</div>					
 						<div class="price">
-							<span>{{$product->price}} VNĐ</span>
+							<span>{{number_format($product->price)}} VNĐ</span>
 						</div>
 						<div class="dt-detail">
 							<ul>

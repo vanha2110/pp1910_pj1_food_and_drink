@@ -23,6 +23,7 @@
     <link href="{{url('template_web/css/thumbnail.slider.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/datepicker.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/bootstrap-select.css')}}" rel="stylesheet">
+	<link href="{{url('template_web/css/bootstrap-rating.css')}}" rel="stylesheet">
     
 	<!-- Owl Carousel for this template-->
 	<link href="{{url('template_web/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
@@ -48,7 +49,8 @@
     <script src="{{url('template_web/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 	<!--Assect scripts for this page-->
 	<script src="{{url('template_web/vendor/OwlCarousel/owl.carousel.js')}}"></script>
-    <script src="{{url('template_web/js/owlslider.js')}}"></script>
+	<script src="{{url('template_web/js/owlslider.js')}}"></script>
+	<script type="text/javascript" src="{{url('template_web/js/bootstrap-rating.js')}}"></script>
     
     <script src="{{url('template_web/assets/owlcarousel/owl.carousel.js')}}"></script>
 	<script src="{{url('template_web/js/custom.js')}}"></script>
