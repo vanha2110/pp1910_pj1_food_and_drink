@@ -1,42 +1,4 @@
 <footer class="footer">
-    <div class="subscribe-now line">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-5 col-md-6">
-                    <div class="subscribe-newsletter">
-                        <div class="sub-text">
-                            <p>Connect with us for update and offers.</p>
-                        </div>
-                        <form>
-                            <input class="input-subscribe" name="newsletter" type="text" placeholder="Enter your email address">
-                            <div class="subscribe-btn">							
-                                <div class="s-n-btn">
-                                    <button class="newsletter-btn btn-link">Subscribe Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3">
-                    <div class="language">	
-                        <form method="post" enctype="multipart/form-data" id="form-language">
-                        <div class="btn-group open">
-                            <button class="lang-btn l-btn-link dropdown-toggle-no-caret" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fas fa-globe"></i><span class="hidden-xs">English</span><i class="fas fa-caret-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">English</a></li>
-                                <li><a href="javascript:;">Spanish</a></li>
-                                <li><a href="javascript:;">Hindi</a></li>
-                                <li><a href="javascript:;">Punjabi</a></li>
-                            </ul>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
@@ -50,7 +12,7 @@
                 <div class="link-title">
                     <h4>About Natto</h4>
                     <ul class="links">
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">@lang('About Us')</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="our_blog.html">Blog</a></li>
                         <li><a href="#">Developers</a></li>
