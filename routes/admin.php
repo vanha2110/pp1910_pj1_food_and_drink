@@ -19,3 +19,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
     Route::resource('products', 'ProductController');
     Route::resource('categories', 'CategoryController');
 });
+
+Route::get('/posts/create', function () {
+    return view('admin.posts.create');
+});

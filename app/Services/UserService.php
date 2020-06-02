@@ -5,10 +5,11 @@ namespace App\Services;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\UserInterface;
 use Illuminate\Support\Facades\Hash;
-use App\Traits\ImageTrait;
+use App\Helpers\Helper;
+
 class UserService
 {
-    use ImageTrait;
+    protected $helper;
 
     public function __construct(UserInterface $userRepository)
     {
@@ -20,7 +21,7 @@ class UserService
         $data = $request->all();
         $data['password'] = Hash::make($request->get('password'));
         $data['role_id'] = '2';
-        $data['avatar'] =  $this->uploadImage($request, 'avatar');
+        $data['avatar'] =  Helper::uploadImage($request, 'avatar');
 
         $this->userRepository->create($data);
     }
@@ -29,7 +30,7 @@ class UserService
     {
         $data = $request->all();
         $data['password'] = Hash::make($request->get('password'));
-        $data['avatar'] =  $this->uploadImage($request, 'avatar');
+        $data['avatar'] =  Helper::uploadImage($request, 'avatar');
         
         $this->userRepository->update($id, $data);
     }
@@ -38,7 +39,7 @@ class UserService
     {
         $user = auth()->user();
         $data = $request->all();
-        $data['avatar'] =  $this->uploadImage($request, 'avatar');
+        $data['avatar'] =  Helper::uploadImage($request, 'avatar');
         $user->update($data);
     }
 }

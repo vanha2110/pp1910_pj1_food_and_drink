@@ -35,18 +35,20 @@
     </div>
     <div class="form-group">
         <label for="select_categories" class="control-label col-md-3 col-sm-3 col-xs-12">{{__('Category')}}</label>
-        <select class="form-control col-md-7 col-xs-12" id="select_categories" name="category_id">
-            @foreach ($categories as $category)
-            <option  value="{{$category->id}}" @if ($category->id == old('category_id')) selected @endif>{{$category->name}}</option>
-            @endforeach
-        </select>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <select class="col-md-7 col-sm-7 col-xs-12" id="select_categories" name="category_id">
+                @foreach ($categories as $category)
+                <option  value="{{$category->id}}" @if ($category->id == old('category_id')) selected @endif>{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
         @if ($errors->has('category_id'))
         <span class="help-block text-danger"><strong>{{ $errors->first('category_id') }}</strong></span>
         @endif
     </div>
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">{{__('Image')}}</label>
-        <div class="input-group col-lg-6 col-md-9 col-sm-12">
+        <div class="input-group col-lg-6 col-md-6 col-sm-12">
             <input class="image_file" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01" name="image" id="image">
         </div>
         @if ($errors->has('image'))

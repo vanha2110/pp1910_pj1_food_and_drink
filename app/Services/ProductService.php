@@ -5,11 +5,10 @@ namespace App\Services;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\ProductInterface;
 use Illuminate\Support\Str;
-use App\Traits\ImageTrait;
+use App\Helpers\Helper;
 
 class ProductService
 {
-    use ImageTrait;
     public function __construct(ProductInterface $productRepository)
     {
         $this->productRepository = $productRepository;
@@ -19,7 +18,7 @@ class ProductService
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->get('name', '-'));
-        $data['image'] =  $this->uploadImage($request, 'image');
+        $data['image'] =  Helper::uploadImage($request, 'image');
         
         $this->productRepository->create($data);
     }
@@ -28,7 +27,7 @@ class ProductService
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->get('name', '-'));
-        $data['image'] =  $this->uploadImage($request, 'image');
+        $data['image'] =  Helper::uploadImage($request, 'image');
         
         $this->productRepository->updateBySlug($slug, $data);
     }
