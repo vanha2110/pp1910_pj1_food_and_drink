@@ -13,7 +13,7 @@ class Order extends Model
         'customer_phone', 
         'delivery_address', 
         'total_price', 
-        'purchase_status',
+        'payment_method',
     ];
 
     public function orderDetails()

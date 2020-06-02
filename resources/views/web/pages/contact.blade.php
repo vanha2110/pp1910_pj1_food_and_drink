@@ -41,21 +41,21 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="contact-item">
-                                    <img src="template_web/images/contact/icon-2.svg" alt="">
+                                    <img src="{{url('template_web/images/contact/icon-2.svg')}}" alt="">
                                     <h4>@lang('Email')</h4>
                                     <p>Nattto@gmail.com<br>Info@natto.com</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="contact-item">
-                                    <img src="template_web/images/contact/icon-3.svg" alt="">
+                                    <img src="{{url('template_web/images/contact/icon-3.svg')}}" alt="">
                                     <h4>@lang('Phone')</h4>
                                     <p>+2 123 456 789<br>+2 987 654 3210</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="contact-item">
-                                    <img src="template_web/images/contact/icon-4.svg" alt="">
+                                    <img src="{{url('template_web/images/contact/icon-4.svg')}}" alt="">
                                     <h4>@lang('24 Support')</h4>
                                     <p>Johndoefounder@gmail.com<br>Jassicaceo@gmail.com</p>
                                 </div>

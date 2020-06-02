@@ -19,7 +19,7 @@
                             <img src="{{url('template_web/images/homepage/meals/logo-1.jpg')}}" alt="">
                         </div>
                         <div class="top-text">
-                            <div class="heading"><h4><a href="meal_detail.html">{{ $product->name }}</a></h4></div>
+                            <div class="heading"><h4><a href="{{route('product_detail', ['product_slug' => $product->slug])}}">{{ $product->name }}</a></h4></div>
                             <div class="sub-heading">
                             <p>{{ $product->price }} VNĐ</p>
                             </div>
@@ -32,7 +32,7 @@
                             <div class="star">							
                                 <span>4.5</span>
                                 <i class="fas fa-star"></i> 
-                                <div class="comments"><a href="#">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
+                                <div class="comments"><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
                             </div>								
                         </div>
                     </div>  

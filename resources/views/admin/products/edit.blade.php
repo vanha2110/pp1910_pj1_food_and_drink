@@ -33,7 +33,7 @@
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">{{__('Image')}}</label>
         <div class="input-group col-lg-6 col-md-9 col-sm-12">
-            <input class="image_file" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01" name="image" id="image_file">
+        <input class="image_file" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01" name="image" id="image_file">
         </div>
     </div>
     <div class="form-group">

@@ -113,6 +113,7 @@ class ProductController extends Controller
      */
     public function destroy($slug)
     {
+        
         $this->productRepository->deleteBySlug($slug);
 
         return redirect()->route('admin.products.index');
