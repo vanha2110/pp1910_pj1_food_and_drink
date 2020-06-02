@@ -22,14 +22,14 @@
 			</div>
 		</div>
 	</section>
-	<!--title-bar end-->
+	<!--title-bar end-->	
 	<!--partners start-->
-	<section class="all-partners">			
-		<div class="container">
-		@if(Session::has('cart'))		
-			<div class="row">
-				<form action="{{ route('checkout') }}" method="post" id="checkout-form">
-				@csrf					
+	<form action="{{ route('checkout') }}" method="post" id="checkout-form">
+		@csrf	
+		<section class="all-partners">			
+			<div class="container">
+			@if(Session::has('cart'))		
+				<div class="row">					
 					<div class="col-lg-8 col-md-8">
 						<div class="my-checkout">
 							<div class="your-order">
@@ -59,14 +59,14 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="about-checkout">
-										<img src="{{url('template_web/images/checkout/icon-1.svg')}}" alt="">
+										<img src="images/checkout/icon-1.svg" alt="">
 										<h4>Your Information is Safe</h4>
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis at metus vitae porta.</p>
 									</div>							
 								</div>
 								<div class="col-md-6">
 									<div class="about-checkout">
-										<img src="{{url('template_web/images/checkout/icon-2.svg')}}" alt="">
+										<img src="images/checkout/icon-2.svg" alt="">
 										<h4>Secure Checkout</h4>
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis at metus vitae porta.</p>
 									</div>							
@@ -173,6 +173,7 @@
 						</div>
 						<div class="right-contact-dt">
 							<h4>Confirm</h4>
+							<form>
 								<div class="form-group">
 									<div class="input-field">
 										<input type="text" name="customer_name" class="confirm-form" id="customer_name" placeholder="Customer Name">							
@@ -185,21 +186,21 @@
 										<i class="fas fa-mobile-alt"></i>
 									</div>
 								</div>
+							</form>
 						</div>
 						<div class="checkout-btn">
-							<button type="submit" class="chkout-btn btn-success">Buy Now</button>	
+							<button type="submit" class="chkout-btn btn-link">Checkout Now</button>
 						</div>
-					</div>
-				</form>						
-			</div>		
-		</div>
-		@else
-			<div class="row">
-				<div class="col-lg-8 col-md-8">
-					<h2>@lang('No Items In Cart!')</h2>
-				</div>
+					</div>			
+				</div>			
 			</div>
-		@endif	
-	</section>			
-	<!--partners end-->
+			@else
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<h2>@lang('No Items In Cart!')</h2>
+					</div>
+				</div>
+			@endif	
+		</section>
+	</form>			
 @endsection
