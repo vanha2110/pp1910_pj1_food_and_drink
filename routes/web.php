@@ -37,4 +37,5 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/product-of-category/{id}', 'ProductController@filterByCategory')->name('productcategory');
     Route::get('/product/{slug}', 'ProductController@show')->name('product_detail');
     Route::get('/add-to-cart/{id}', 'ProductController@addToCart')->name('product_cart');
+    Route::get('/search', 'ProductController@search')->name('search');
 });

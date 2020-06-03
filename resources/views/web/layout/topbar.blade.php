@@ -7,7 +7,6 @@
                             <ul class="list-inline">
                                 <li> <a href="{{route('contact')}}"> @lang('Contact') </a></li>
                                 <li> <a href="{{route('about')}}"> @lang('About Us') </a></li>
-                                <li> <a href="our_blog.html"> @lang('Blog') </a></li>
                             </ul>
                         </div>
                     </div>
@@ -70,8 +69,8 @@
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1">	
                                     <div class="notification-item">													
                                         <div class="search-details">
-                                            <form class="form-inline">
-                                              <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                                        <form class="form-inline" method="get" action="{{route('search')}}">
+                                              <input class="form-control " type="search" name="search" placeholder="Search" aria-label="Search">
                                               <button class="s-btn btn-link " type="submit"><i class="fas fa-search"></i></button>
                                             </form>																																								
                                         </div>

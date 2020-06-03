@@ -35,13 +35,6 @@
             <span>{{__('Order')}}</span>
         </a>
     </li>
-    <!-- Post Menu -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.posts.index') }}">
-            <i class="fas fa-fw fa-book"></i>
-            <span>{{__('Post')}}</span>
-        </a>
-    </li>
 
     <!-- Category Menu -->
     <li class="nav-item">

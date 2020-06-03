@@ -70,4 +70,11 @@ class ProductController extends Controller
         $request->session()->put('cart', $cart);
         return redirect()->back();
     }
+
+    public function search(Request $request)
+    {
+        $products = Product::where('name', 'like', '%'.$request->search.'%')->get();
+
+        return view('web.products.search', compact('products'));
+    }
 }
