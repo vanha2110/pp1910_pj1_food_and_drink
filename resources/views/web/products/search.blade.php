@@ -1,33 +1,28 @@
 @extends('web.layout.app')
 
 @section('content')
-<!--banner start-->
-<section class="block-preview">
-    <div class="cover-banner" style="background-image: url('template_web/images/homepage/banner.jpg')"></div>
+<section class="title-bar">
     <div class="container">
-        <div class="row">	
-            <div class="col-lg-8 col-md-6 col-sm-12">
-                <div class="left-text-b">
-                    <h1 class="title">Choose, Order and Checkout</h1>
-                    <h6 class="exeption">Specify your address to suggest you the fast delivery</h6>
-                    <p>Get our services from 24 hours.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="left-title-text">
+                <h3>@lang('Search')</h3>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="right-title-text">  
+                    <ul>
+                        <li class="breadcrumb-item"><a href="{{route('index')}}">@lang('Home')</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@lang('Search')</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--banner end-->
 
-<!--order-food-online-in-your-area start-->
 <section class="order-food-online">		
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="new-heading">
-                    <h1> Order Food Online In Your Area </h1>
-                </div>
-            </div>
-        </div>
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">

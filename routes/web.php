@@ -39,4 +39,5 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/del-cart/{id}', 'ProductController@getDelItemCart')->name('product_delCart');
     Route::get('/checkout', 'ProductController@getCheckout')->name('checkout');
     Route::post('/checkout', 'ProductController@postCheckout')->name('checkout');
+    Route::get('/search', 'ProductController@search')->name('search');
 });

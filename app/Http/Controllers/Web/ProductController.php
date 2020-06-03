@@ -84,4 +84,11 @@ class ProductController extends Controller
         $this->productService->checkout($request);
         return redirect()->back()->with('success', 'Successfully purchased products!');   
     }
+
+    public function search(Request $request)
+    {
+        $products = Product::where('name', 'like', '%'.$request->search.'%')->get();
+
+        return view('web.products.search', compact('products'));
+    }
 }
