@@ -28,14 +28,6 @@
     Interface
     </div>
 
-    <!-- Post Menu -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Post</span>
-        </a>
-    </li>
-
     <!-- Category Menu -->
     <li class="nav-item">
         <a class="nav-link" href="#"> 

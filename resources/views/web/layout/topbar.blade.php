@@ -7,14 +7,13 @@
                             <ul class="list-inline">
                                 <li> <a href="{{route('contact')}}"> @lang('Contact') </a></li>
                                 <li> <a href="{{route('about')}}"> @lang('About Us') </a></li>
-                                <li> <a href="our_blog.html"> @lang('Blog') </a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="topbar-right text-center text-md-right">
                             <ul class="list-inline">									
-                                <li><a href="{{ route('product_cart') }}"><i class="fas fa-shopping-cart"></i>@lang('Shopping Cart') <span class="badge badge-secondary">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''  }}</span></a></li>										
+                                <li><a href="#"><i class="fas fa-shopping-cart"></i>@lang('Orders') <span class="badge badge-secondary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span></a></li>										
                                 @if (Auth::guest())
                                     <li><a href="{{ route('login') }}">@lang('Login')</a></li>
                                 @else                                        
@@ -61,6 +60,7 @@
                                     </li>
                                 </ul>											
                             </div>
+                            
                         </nav>
                         <div class="icons-set">
                             <ul class="list-inline">
@@ -69,8 +69,8 @@
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1">	
                                     <div class="notification-item">													
                                         <div class="search-details">
-                                            <form class="form-inline">
-                                              <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                                        <form class="form-inline" method="get" action="{{route('search')}}">
+                                              <input class="form-control " type="search" name="search" placeholder="Search" aria-label="Search">
                                               <button class="s-btn btn-link " type="submit"><i class="fas fa-search"></i></button>
                                             </form>																																								
                                         </div>
