@@ -3,8 +3,8 @@
         <div class="tab-pane active" id="change-password">						
             <div class="timeline">
                 <div class="tab-content-heading">
-                    <h4>Change Password</h4>
-                    <a href="my_profile_dashbord.html"><i class="fas fa-angle-double-left"></i>Back to Profile</a>
+                    <h4>@lang('Change Password')</h4>
+                    <a href="my_profile_dashbord.html"><i class="fas fa-angle-double-left"></i>@lang('Back to Profile')</a>
                 </div>
                 @if (session('error'))
                 <div class="alert alert-danger" role="alert" style="text-align: center;">
@@ -20,7 +20,7 @@
                 <form method="POST" action="{{ route('change_password') }}">
                 @csrf										
                         <div class="form-group{{ $errors->has('current_password') ? ' has-error' : '' }}">
-                            <label for="current_password">Current Password</label>
+                            <label for="current_password">@lang('Current Password')</label>
                             <input type="password" class="video-form" name="current_password" id="currnet_password" placeholder="Enter Current Password" required="">	
                             
                             @if ($errors->has('current_password'))
@@ -30,7 +30,7 @@
                             @endif
                         </div>										
                         <div class="form-group{{ $errors->has('new_password') ? ' has-error' : '' }}">
-                            <label for="new_password">New Password</label>
+                            <label for="new_password">@lang('New Password')</label>
                             <input type="password" class="video-form" name="new_password" id="new_password" placeholder="Enter New Password" required="">
 
                             @if ($errors->has('new_password'))
@@ -40,10 +40,10 @@
                             @endif							
                         </div>
                         <div class="form-group">
-                            <label for="new_password_confirm">Confirm Password</label>
+                            <label for="new_password_confirm">@lang('Confirm Password')</label>
                             <input type="password" class="video-form" name="new_password_confirm" id="new_password_confirm" placeholder="Enter Confirm Password" required="">							
                         </div>
-                        <button type="submit" class="change-btn btn-link">Save Password</button>
+                        <button type="submit" class="change-btn btn-link">@lang('Save')</button>
                     </form>
                 </div>
             </div>							

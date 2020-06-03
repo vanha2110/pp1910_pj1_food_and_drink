@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Rate;
-use App\Models\Order;
 
 class Product extends Model
 {

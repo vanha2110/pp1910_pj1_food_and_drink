@@ -7,14 +7,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="left-title-text">
-                            <h3>About us</h3>
+                            <h3>@lang('About us')</h3>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="right-title-text">  
                             <ul>
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                                <li class="breadcrumb-item"><a href="index.html">@lang('Home')</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">@lang('About Us')</li>
                             </ul>
                         </div>
                     </div>
