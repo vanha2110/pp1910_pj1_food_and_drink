@@ -4,7 +4,7 @@
             <div class="timeline">
                 <div class="tab-content-heading">
                     <h4>@lang('Update Profile')</h4>
-                    <a href="my_profile_dashbord.html"><i class="fas fa-angle-double-left"></i>@lang('Back to Profile')</a>
+                <a href="{{ route('account') }}"><i class="fas fa-angle-double-left"></i>@lang('Back to Profile')</a>
                 </div>
                 @if (session('success'))
                 <div class="alert alert-success" role="alert" style="text-align: center;">

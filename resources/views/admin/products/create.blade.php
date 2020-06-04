@@ -9,7 +9,7 @@
     {{ session('success') }}
 </div>
 @endif
-<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('admin.products.create')}}" enctype="multipart/form-data">
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('admin.products.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">{{__('Name')}}<span class="required"></span></label>

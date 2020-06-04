@@ -46,7 +46,7 @@ function myFunction() {
 }
 
 // Payment Method Accordion
-    $('input[name="paymentmethod"]').on('click', function () {
+    $('input[name="payment_method"]').on('click', function () {
         var $value = $(this).attr('value');
         $('.payment-method-details').slideUp();
         $('[data-method="' + $value + '"]').slideDown();

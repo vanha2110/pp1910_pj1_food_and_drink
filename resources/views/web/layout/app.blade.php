@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from gambolthemes.net/natto-new-demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Mar 2020 07:31:29 GMT -->
+<!-- Mirrored from gambolthemes.net/natto-new-demo/index.html by HTTrack Website Copier/3.x XR&CO'2014, Tue, 03 Mar 2020 07:31:29 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,6 +58,8 @@
 	<script src="{{url('template_web/js/thumbnail.slider.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-datepicker.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-select.js')}}"></script>
+	<script type="text/javascript" src="{{url('template_web/js/bootstrap-rating.js')}}"></script>
+
 	<script>
 	$(document).ready(function(){
 		$('#qty_input').prop('disabled', true);

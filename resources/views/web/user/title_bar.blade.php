@@ -17,7 +17,6 @@
         </div>
     </div>
 </section>
-
 <section class="my-account">			
     <div class="profile-bg">
         <img src="{{url('template_web/images/profile/bg-img.jpg')}}" alt="Responsive image">

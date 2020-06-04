@@ -4,8 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Http\Request;
 
-trait ImageTrait 
-{
+trait ImageTrait {
 	function uploadImage(Request $request, $fieldname = 'image')
 	{
 		if( $request->hasFile( $fieldname ) ) {
@@ -18,4 +17,5 @@ trait ImageTrait
 			return $fileNameToStore ;
 		}
 	}
+	
 }

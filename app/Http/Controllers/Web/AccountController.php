@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserFormRequest;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Services\UserService;
 
 class AccountController extends Controller
@@ -28,9 +30,18 @@ class AccountController extends Controller
 
     public function updateProfile(UserFormRequest $request)
     {
-
         $this->userService->updateProfile($request);
 
         return redirect('/account')->with('success', 'Profile Updated');
+    }
+
+    public function myOrder()
+    {
+        $user_id = auth()->user()->id;
+        $orders = Order::with('orders')->where('user_id', $user_id)->get();
+        $orders = json_decode(json_encode($orders));
+        echo "<pre>"; print_r($orders); die;
+
+        return view('web.user.order.index', compact('orders', 'products'));
     }
 }

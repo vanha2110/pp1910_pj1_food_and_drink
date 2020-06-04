@@ -73,31 +73,10 @@
 								</li>
 							</ul>
 						</div>
-						<div class="Qty">
-							<h4> Qty</h4>
-							 <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button class="minus-btn btn-sm" id="minus-btn"><i class="fas fa-minus-square"></i></button>
-                                </div>
-                                <input type="number" id="qty_input" class="qty-control" value="1" min="1">
-                                <div class="input-group-prepend">
-                                    <button class="add-btn btn-sm" id="plus-btn"><i class="fas fa-plus-square"></i></button>
-                                </div>
-                            </div>
-						</div>
-						<div class="total-cost">
-							<div class="total-text">
-								<h5>@lang('Total')</h5>
-							</div>
-							<div class="total-price">
-								<p>$17.00</p>
-							</div>
-						</div>
 						<div class="order-now-check">
-							<button class="on-btn btn-link" onclick="">@lang('Order Now')</button>
+							<button class="on-btn btn-link" onclick="" ><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart')</a></button>
 						</div>
 					</div>
-						
 				</div>
 			</div>			
 		</div>

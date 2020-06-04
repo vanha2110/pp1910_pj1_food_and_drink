@@ -5,7 +5,7 @@
     <h1 class="h3 mb-0 text-gray-800">{{__('Create User')}}</h1>
     <!-- <a href="template_admin/#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 </div>
-<form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{route('admin.users.create')}}" enctype="multipart/form-data">
+<form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{route('admin.users.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="m-portlet__body">
         <div class="form-group m-form__group row">
