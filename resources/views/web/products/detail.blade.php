@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="right-title-text">  
+                    <div class="right-title-text">
                         <ul>
                             <li class="breadcrumb-item"><a href="{{route('index')}}">@lang('Home')</a></li>
                             <li class="breadcrumb-item"><a href="{{route('product')}}">@lang('Products')</a></li>
@@ -23,29 +23,29 @@
         </div>
     </section>
 
-    <section class="all-partners">			
-		<div class="container">		
-			<div class="row">					
+    <section class="all-partners">
+		<div class="container">
+			<div class="row">
 				<div class="col-lg-8 col-md-8">
 					<div id="sync1" class="owl-carousel owl-theme">
 						<div class="item">
-                        <img src="/storage/img/{{$product->image}}" alt="">
-						</div>				
+                        <img src="{{url('image' . '/' . $product->image) }}" alt="">
+						</div>
 					</div>
 					<div class="resto-meal-dt">
 						<div class="right-side-btns">
 							<div class="bagde-dt">
 								<div class="partner-badge">
 									Partner
-								</div>											
+								</div>
 							</div>
 							<div class="resto-review-stars">
 								<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>								
-								<span>4.5/5</span>									
+								<i class="fas fa-star"></i>
+								<span>4.5/5</span>
 							</div>
 						</div>
 					</div>
@@ -59,7 +59,7 @@
 							<h4>Description</h4>
 							<p>{{$product->description}}</span></p>
 							<a href="javascript:;" onclick="myFunction()" id="readBtn">@lang('See All')</a>
-						</div>					
+						</div>
 						<div class="price">
 							<span>{{number_format($product->price)}} VNĐ</span>
 						</div>
@@ -78,7 +78,7 @@
 						</div>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</section>
 @endsection

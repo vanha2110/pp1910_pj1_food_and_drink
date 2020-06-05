@@ -24,7 +24,12 @@
                     <td>{{ $category->name }}</td>
                     <td>
                         <a href="{{route('admin.categories.edit', ['category' => $category->id])}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('admin.categories.destroy', ['category' => $category->id])}}"><i class="fa fa-trash" ></i></a>
+                        <a href="javascript:void(0);" onclick="$(this).find('form').submit();" ><i class="fa fa-trash" ></i>
+                            <form action="{{route('admin.categories.destroy', ['category' => $category->id])}}" method="post">
+                                @csrf
+                                @method('delete')
+                            </form>
+                        </a>
                     </td>
                 </tr>
             @endforeach

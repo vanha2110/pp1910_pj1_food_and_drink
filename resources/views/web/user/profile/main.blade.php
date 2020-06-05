@@ -17,7 +17,7 @@
                         <div class="setting-dt">
                             <h4>Avatar</h4>
                             <div class="avatar">
-                                <img style="width: 150px" src="/storage/img/{{Auth::user()->avatar}}" alt="">
+                                <img style="width: 150px" src="{{url('image/' . auth()->user()->avatar) }}" alt="">
                             </div>
                             <div class="upload-avatar">
                                 <div class="input-heading">@lang('Upload New Avatar')</div>

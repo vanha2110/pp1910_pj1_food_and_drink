@@ -13,9 +13,9 @@ trait ImageTrait {
             $filename = pathinfo($file, PATHINFO_FILENAME);
             $extension = $request->file($fieldname)->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
-			$request->file($fieldname)->storeAs('public/img', $fileNameToStore);
+			$request->file($fieldname)->move('image', $fileNameToStore);
 			return $fileNameToStore ;
 		}
 	}
-	
+
 }

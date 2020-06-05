@@ -13,7 +13,7 @@
                     <div class="top">
                         <a href="{{route('product_detail', ['slug' => $product->slug])}}"><div class="bg-gradient"></div></a>
                         <div class="top-img">
-                            <img src="/storage/img/{{$product->image}}" alt="">
+                            <img src="{{url('image' . '/' . $product->image) }}" alt="">
                         </div>
                         <div class="logo-img">
                             <img src="{{url('template_web/images/homepage/meals/logo-1.jpg')}}" alt="">
@@ -29,16 +29,16 @@
                         <div class="bottom-text">
                             <div class="delivery"><i class="fas fa-shopping-cart"></i>@lang('Delivery Free : Free')</div>
                             <div class="time"><i class="far fa-clock"></i>@lang('Delivery Time : 30 Min')</div>
-                            <div class="star">							
+                            <div class="star">
                                 <span>4.5</span>
-                                <i class="fas fa-star"></i> 
+                                <i class="fas fa-star"></i>
                                 <div class="comments"><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
-                            </div>								
+                            </div>
                         </div>
-                    </div>  
-                </div>					
+                    </div>
+                </div>
             </div>
-        @endforeach						
+        @endforeach
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 ">

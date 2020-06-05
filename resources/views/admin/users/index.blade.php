@@ -29,7 +29,12 @@
                     <td>{{ $user->phone }}</td>
                     <td>
                         <a href="{{route('admin.users.edit', ['user' => $user->id])}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('admin.users.destroy', ['user' => $user->id])}}"><i class="fa fa-trash" ></i></a>
+                        <a href="javascript:void(0);" onclick="$(this).find('form').submit();" ><i class="fa fa-trash" ></i>
+                            <form action="{{route('admin.users.destroy', ['user' => $user->id])}}" method="post">
+                                @csrf
+                                @method('delete')
+                            </form>
+                        </a>
                     </td>
                 </tr>
             @endforeach

@@ -27,13 +27,18 @@
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
-                    <td><img style="width: 100%" src="/storage/img/{{$product->image}}"></td>
+                    <td><img style="width: 100%" src="{{url('image' . '/' . $product->image) }}"></td>
                     <td>{{ $product->category_id }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->description }}</td>
                     <td>
                         <a href="{{route('admin.products.edit', ['product' => $product->slug])}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('admin.products.destroy', ['product' => $product->slug])}}"><i class="fa fa-trash" ></i></a>
+                        <a href="javascript:void(0);" onclick="$(this).find('form').submit();" ><i class="fa fa-trash" ></i>
+                            <form action="{{route('admin.products.destroy', ['product' => $product->slug])}}" method="post">
+                                @csrf
+                                @method('delete')
+                            </form>
+                        </a>
                     </td>
                 </tr>
             @endforeach

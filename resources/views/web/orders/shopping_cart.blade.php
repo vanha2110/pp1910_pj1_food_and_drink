@@ -12,7 +12,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="right-title-text">  
+					<div class="right-title-text">
 						<ul>
 							<li class="breadcrumb-item"><a href="{{route('index')}}">@lang('Home')</a></li>
 							<li class="breadcrumb-item active" aria-current="page">@lang('Shopping Cart')</li>
@@ -22,12 +22,12 @@
 			</div>
 		</div>
 	</section>
-	<!--title-bar end-->	
+	<!--title-bar end-->
 	<!--partners start-->
-	<section class="all-partners">			
+	<section class="all-partners">
 		<div class="container">
-		@if(Session::has('cart'))		
-			<div class="row">					
+		@if(Session::has('cart'))
+			<div class="row">
 				<div class="col-lg-8 col-md-8">
 					<div class="my-checkout">
 						<div class="table-responsive">
@@ -37,7 +37,7 @@
 										<td class="td-heading">@lang('Product')</td>
 										<td class="td-heading">@lang('Qty')</td>
 										<td class="td-heading">@lang('Price')</td>
-										<td class="td-heading">@lang('Action')</td>										
+										<td class="td-heading">@lang('Action')</td>
 									</tr>
 								</thead>
 								@foreach($products as $product)
@@ -46,7 +46,7 @@
 										<td>
 											<div class="checkout-thumb">
 												<a href="{{route('product_detail', $product['item']['slug'] )}}">
-													<img src="/storage/img/{{$product['item']['image']}}" class="img-responsive" alt="thumb" title="thumb">
+													<img src="{{url('image' . '/' . $product['item']['image'])}}" class="img-responsive" alt="thumb" title="thumb">
 												</a>
 											</div>
 											<div class="name">
@@ -56,31 +56,31 @@
 													<i class="fas fa-star"></i>
 													<i class="fas fa-star"></i>
 													<i class="fas fa-star"></i>
-													<i class="far fa-star"></i>								
-													<span>4.5</span> 											
+													<i class="far fa-star"></i>
+													<span>4.5</span>
 												</div>
 											</div>
-										</td>									
-										<td class="td-content">{{ $product['qty'] }}</td>										
+										</td>
+										<td class="td-content">{{ $product['qty'] }}</td>
 										<td class="td-content" >{{number_format($product['price'])}} VND</td>
-										<td><a href="{{route('product_delCart', $product['item']['id'])}}"><button class="remove-btn">Remove</button></a></td>									
-									</tr>									
+										<td><a href="{{route('product_delCart', $product['item']['id'])}}"><button class="remove-btn">Remove</button></a></td>
+									</tr>
 								</tbody>
 								@endforeach
 								<tbody>
 									<tr>
 										<td colspan="4">
-											<h3 class="text-right">Total <ins>@if(Session::has('cart')) {{number_format($totalPrice)}} VND @endif</ins></h3>											
+											<h3 class="text-right">Total <ins>@if(Session::has('cart')) {{number_format($totalPrice)}} VND @endif</ins></h3>
 										</td>
 									</tr>
-								</tbody>						
-							</table>	
+								</tbody>
+							</table>
 						</div>
 					</div>
 					<div class="checkout-btn">
 						<a href="{{route('checkout')}}"><button type="submit" class="chkout-btn btn-link">Checkout Now</button></a>
 					</div>
-				</div>			
+				</div>
 			</div>
 		@else
 			<div class="row">
@@ -88,8 +88,8 @@
 					<h2>@lang('No Items In Cart!')</h2>
 				</div>
 			</div>
-		@endif			
+		@endif
 		</div>
-	</section>			
+	</section>
 	<!--partners end-->
 @endsection
