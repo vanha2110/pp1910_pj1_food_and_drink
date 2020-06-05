@@ -11,7 +11,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="all-meal">
                     <div class="top">
-                        <a href="meal_detail.html"><div class="bg-gradient"></div></a>
+                        <a href="{{route('product_detail', ['slug' => $product->slug])}"><div class="bg-gradient"></div></a>
                         <div class="top-img">
                             <img src="/storage/img/{{$product->image}}" alt="">
                         </div>
@@ -19,7 +19,7 @@
                             <img src="{{url('template_web/images/homepage/meals/logo-1.jpg')}}" alt="">
                         </div>
                         <div class="top-text">
-                            <div class="heading"><h4><a href="{{route('product_detail', ['product_slug' => $product->slug])}}">{{ $product->name }}</a></h4></div>
+                            <div class="heading"><h4><a href="{{route('product_detail', ['slug' => $product->slug])}}">{{ $product->name }}</a></h4></div>
                             <div class="sub-heading">
                             <p>{{ $product->price }} VNĐ</p>
                             </div>

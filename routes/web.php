@@ -33,7 +33,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::post('/contact', 'HomeController@contactSend');
     Route::get('/products', 'ProductController@index')->name('product');
     Route::get('/product-of-category/{id}', 'ProductController@filterByCategory')->name('productcategory');
-    Route::get('/product/{product_slug}', 'ProductController@show')->name('product_detail');
+    Route::get('/product/{slug}', 'ProductController@show')->name('product_detail');
     Route::get('/add-to-cart/{id}', 'ProductController@getAddToCart')->name('product_addToCart');
     Route::get('/shopping-cart', 'ProductController@getCart')->name('product_cart');
     Route::get('/del-cart/{id}', 'ProductController@getDelItemCart')->name('product_delCart');

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +23,6 @@
     <link href="{{url('template_web/css/thumbnail.slider.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/datepicker.css')}}" rel="stylesheet">
     <link href="{{url('template_web/css/bootstrap-select.css')}}" rel="stylesheet">
-    <link href="{{url('template_web/css/bootstrap-rating.css')}}" rel="stylesheet">
     
 	<!-- Owl Carousel for this template-->
 	<link href="{{url('template_web/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
@@ -56,8 +54,6 @@
 	<script src="{{url('template_web/js/thumbnail.slider.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-datepicker.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-select.js')}}"></script>
-	<script type="text/javascript" src="{{url('template_web/js/bootstrap-rating.js')}}"></script>
-
 	<script>
 	$(document).ready(function(){
 		$('#qty_input').prop('disabled', true);
