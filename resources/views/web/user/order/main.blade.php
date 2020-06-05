@@ -1,4 +1,4 @@
-<div class="col-lg-8 col-md-8 col-12">
+<div class="col-lg-8 col-md-9 col-12">
     <div class="tab-content">
         <div class="tab-pane active" id="order-history">
             <div class="timeline">
@@ -13,35 +13,34 @@
                                     <table class="table  table-bordered">
                                         <thead>
                                             <tr>
-                                                <td class="td-heading">Id</td>
-                                                <td class="td-heading">Product</td>
-                                                <td class="td-heading">Qty</td>
-                                                <td class="td-heading">Payment Method</td>
-                                                <td class="td-heading">Total Price</td>
+                                                <td class="td-heading">@lang('Product')</td>
+                                                <td class="td-heading">@lang('Quantity')</td>
+                                                <td class="td-heading">@lang('Payment Method')</td>
+                                                <td class="td-heading">@lang('Total Price')</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($orders as $order)
                                             <tr>
-                                                <td class="td-content">{{$order->id}}</td>
                                                 <td class="td-content">
-                                                    @foreach ($order->orders as $pro)
+                                                    @foreach ($order->orders as $detail)
                                                     <div class="name-dt">
-                                                        <a href=""><p>{{$pro->product_id}}</p></a>
+                                                        <i><p>{{$detail->product->name}}</p></i>
                                                     </div>
                                                     @endforeach
-                                                </td>									
+                                                </td>
                                                 <td class="td-content">
-                                                    @foreach ($order->orders as $pro)
+                                                    @foreach ($order->orders as $detail)
                                                     <div class="name-dt">
-                                                        <a href=""><p>{{$pro->quantity}}</p></a>
+                                                        <i><p>{{$detail->quantity}}</p></i>
                                                     </div>
-                                                    @endforeach</td>
-                                                <td class="td-content">{{ $order->payment_method }}</td>										
-                                                <td class="td-content">{{ number_format($order->total_price) }} VNĐ</td>														
-                                            </tr>    
+                                                    @endforeach
+                                                </td>
+                                                <td class="td-content">{{ $order->payment_method }}</td>
+                                                <td class="td-content">{{ number_format($order->total_price) }} VNĐ</td>
+                                            </tr>
                                             @endforeach
-                                        </tbody>														
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
