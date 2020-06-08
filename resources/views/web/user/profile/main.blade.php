@@ -12,7 +12,7 @@
                 </div>
                 @endif
                 <div class="edit-profile">
-                    <form action="{{route('update_profile')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('update_profile') }}" method="post" enctype="multipart/form-data">
                     @csrf
                         <div class="setting-dt">
                             <h4>Avatar</h4>

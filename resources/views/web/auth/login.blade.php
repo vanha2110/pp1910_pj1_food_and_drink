@@ -58,16 +58,16 @@
                         </div>
                         <input type="submit" class="btn btn-primary btn-user btn-block" value="{{__('Login')}}">
                     </form>
-                    
+
                     <hr>
-                    {{-- <a href="#" class="btn btn-google btn-user btn-block">
+                    <a href="/login/google" class="btn btn-google btn-user btn-block">
                         <i class="fab fa-google fa-fw"></i> Đăng nhập bằng Google
                     </a>
-                    <a href="#" class="btn btn-facebook btn-user btn-block">
+                    <a href="/login/facebook" class="btn btn-facebook btn-user btn-block">
                         <i class="fab fa-facebook-f fa-fw"></i> Đăng nhập bằng Facebook
                     </a>
                   </form>
-                  <hr> --}}
+                  <hr>
                   <div class="text-center">
                     <a class="small" href="#">{{__('Forgot password?')}}</a>
                   </div>

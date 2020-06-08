@@ -30,7 +30,7 @@ class HomeController extends Controller
         return view('web.index', compact('products'));
     }
 
-    
+
     public function about()
     {
         return view('web.pages.about');

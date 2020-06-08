@@ -58,7 +58,6 @@
 						<div class="about-meal">
 							<h4>Description</h4>
 							<p>{{$product->description}}</span></p>
-							<a href="javascript:;" onclick="myFunction()" id="readBtn">@lang('See All')</a>
 						</div>
 						<div class="price">
 							<span>{{number_format($product->price)}} VNĐ</span>

@@ -35,11 +35,13 @@
     </div>
     <div class="form-group">
         <label for="select_categories" class="control-label col-md-3 col-sm-3 col-xs-12">{{__('Category')}}</label>
-        <select class="form-control col-md-7 col-xs-12" id="select_categories" name="category_id">
-            @foreach ($categories as $category)
-            <option  value="{{$category->id}}" @if ($category->id == old('category_id')) selected @endif>{{$category->name}}</option>
-            @endforeach
-        </select>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <select class="form-control col-md-7 col-xs-12" id="select_categories" name="category_id">
+                @foreach ($categories as $category)
+                <option  value="{{$category->id}}" @if ($category->id == old('category_id')) selected @endif>{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
         @if ($errors->has('category_id'))
         <span class="help-block text-danger"><strong>{{ $errors->first('category_id') }}</strong></span>
         @endif
