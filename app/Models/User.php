@@ -16,11 +16,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email', 
-        'phone', 
+        'name',
+        'email',
+        'phone',
         'avatar',
-        'password', 
+        'password',
         'role_id',
         'address',
     ];
@@ -79,5 +79,10 @@ class User extends Authenticatable
     public function rates()
     {
         return $this->hasMany(Rate::class);
+    }
+
+    public function review()
+    {
+        return $this->hasOne(ProductReview::class);
     }
 }

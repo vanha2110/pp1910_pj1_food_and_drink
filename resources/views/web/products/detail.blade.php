@@ -1,6 +1,8 @@
 @extends('web.layout.app')
 @section('title', $product->name)
-
+@section('css')
+    <link href="{{url('template_web/css/rating.css')}}" rel="stylesheet">
+@endsection
 @section('content')
     <section class="title-bar">
         <div class="container">
@@ -26,7 +28,7 @@
     <section class="all-partners">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-md-8">
+				<div class="col-lg-6 col-md-6">
 					<div id="sync1" class="owl-carousel owl-theme">
 						<div class="item">
                         <img src="{{url('image' . '/' . $product->image) }}" alt="">
@@ -34,21 +36,61 @@
 					</div>
 					<div class="resto-meal-dt">
 						<div class="right-side-btns">
-							<div class="bagde-dt">
-								<div class="partner-badge">
-									Partner
-								</div>
-							</div>
-							<div class="resto-review-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<span>4.5/5</span>
-							</div>
+                            <div id="app">
+                                <star-rating :rating="{{$product->getStarRating()}}" :read-only="true" :star-size="30"></star-rating>
+                            </div>
 						</div>
 					</div>
+
+                    <div class="all-tabs">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class ="nav-item" role="presentation">
+                                <a class="nav-link active" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" role="tabpanel" id="reviews">
+                                <div class="comment-post">
+                                    <form action="{{ route('review') }}" method="post" >
+                                        @csrf
+                                        <div class="post-items">
+                                            <div class="img-dp">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="select-rating">
+                                                <h4>Your Rating :</h4>
+                                                <div class="ratings">
+                                                    @for($i = 1; $i < 6; $i++)
+                                                        <input type="radio" name="rating" id="rating"  value="{{ $i }}">
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            <textarea type="text" class="rating-input" name="comment" id="comment" placeholder="Write your review"></textarea>
+                                            <input class="rating-btn btn-link" type="submit" value="Save Review">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="main-comments bm-margin">
+                                    <div class="rating-1">
+                                        @forelse($product->reviews as $review)
+                                            <div class="user-detail-heading">
+                                                <a href="{{ route('account') }}"><img src="{{ url('image/'. auth()->user()->avatar) }}" alt=""></a>
+                                                <h4>{{ auth()->user()->name }}</h4><br>
+                                            </div>
+                                            <div class="reply-time">
+                                                <p><i class="far fa-clock"></i>12 hours ago</p>
+                                            </div>
+                                            <div class="comment-description">
+                                                <p>{{ $review->comment }}</p>
+                                            </div>
+                                            @empty
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				</div>
 				<div class="col-lg-4 col-md-4">
 					<div class="right-side">
@@ -57,7 +99,7 @@
 						</div>
 						<div class="about-meal">
 							<h4>Description</h4>
-							<p>{{$product->description}}</span></p>
+							<p>{{$product->description}}</p>
 						</div>
 						<div class="price">
 							<span>{{number_format($product->price)}} VNĐ</span>
@@ -80,4 +122,8 @@
 			</div>
 		</div>
 	</section>
+    <script src="{{url('js/app.js')}}"></script>
+@endsection
+@section('script')
+    <script src="{{ url('template_web/js/rating.js') }}"></script>
 @endsection

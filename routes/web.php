@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/account/password', 'ChangePasswordController@index')->name('change_password');
     Route::get('login/{provider}', 'LoginController@redirectToProvider');
     Route::get('login/{provider}/callback', 'LoginController@handleProviderCallback');
+
 });
 
 Route::group(['namespace' => 'Web'], function () {
@@ -45,4 +46,5 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/checkout', 'ProductController@getCheckout')->name('checkout');
     Route::post('/checkout', 'ProductController@postCheckout')->name('checkout');
     Route::get('/search', 'ProductController@search')->name('search');
+    Route::post('/review', 'ProductReviewController@store')->name('review');
 });

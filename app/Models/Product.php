@@ -10,11 +10,11 @@ class Product extends Model
 {
     protected $table = 'products';
     protected $fillable = [
-        'name', 
-        'image', 
-        'price', 
-        'size', 
-        'description', 
+        'name',
+        'image',
+        'price',
+        'size',
+        'description',
         'category_id',
         'slug',
     ];
@@ -32,5 +32,22 @@ class Product extends Model
     public function category()
     {
         return $this->hasOne(Category::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(ProductReview::class);
+    }
+
+    public function getStarRating()
+    {
+        $count = $this->reviews()->count();
+        if (empty($count)){
+            return 0;
+        }
+        $starCountSum = $this->reviews()->sum('rating');
+        $average = $starCountSum/ $count;
+
+        return $average;
     }
 }

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-	
+
 	<!-- Favicon -->
 	<link href="{{url('template_web/images/fav.png')}}" rel="shortcut icon" type="image/x-icon"/>
 
@@ -25,18 +25,19 @@
 	<link href="{{url('template_web/css/datepicker.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/bootstrap-select.css')}}" rel="stylesheet">
 	<link href="{{url('template_web/css/bootstrap-rating.css')}}" rel="stylesheet">
-    
+
 	<!-- Owl Carousel for this template-->
 	<link href="{{url('template_web/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
 	{{-- <link href="{{url(template_web/vendor/OwlCarousel/assets/owl.theme.default.min.css)}}" rel="stylesheet"> --}}
-	
+
     <!-- Fontawesome styles for this template-->
     <link href="{{url('template_web/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-	
+    @yield('css')
+
 </head>
 
 <body oncontextmenu="return false;">
-      
+
     @include('web.layout.topbar')
 
     @yield('content')
@@ -51,14 +52,11 @@
 	<!--Assect scripts for this page-->
 	<script src="{{url('template_web/vendor/OwlCarousel/owl.carousel.js')}}"></script>
 	<script src="{{url('template_web/js/owlslider.js')}}"></script>
-	<script type="text/javascript" src="{{url('template_web/js/bootstrap-rating.js')}}"></script>
-    
-    <script src="{{url('template_web/assets/owlcarousel/owl.carousel.js')}}"></script>
 	<script src="{{url('template_web/js/custom.js')}}"></script>
 	<script src="{{url('template_web/js/thumbnail.slider.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-datepicker.js')}}"></script>
 	<script src="{{url('template_web/js/bootstrap-select.js')}}"></script>
-	<script type="text/javascript" src="{{url('template_web/js/bootstrap-rating.js')}}"></script>
+    @yield('script')
 
 	<script>
 	$(document).ready(function(){
@@ -74,6 +72,27 @@
 
 		});
 	});
-	</script>	
+	</script>
+    <script>
+        $('.ratings').rating(function(vote, event){
+            let request = {
+                rating: vote,
+                product_id: $('#product_id').val()
+            }
+            $.ajaxSetup({
+                headers: {
+
+                }
+            })
+            $.ajax({
+                method: 'POST',
+                url: '/review',
+                data: request,
+                success: function(data) {
+                    console.log(data);
+                },
+            })
+        })
+    </script>
   </body>
 </html>
