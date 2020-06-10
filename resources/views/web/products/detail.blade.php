@@ -45,7 +45,7 @@
                     <div class="all-tabs">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class ="nav-item" role="presentation">
-                                <a class="nav-link active" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a>
+                                <a class="nav-link active" aria-controls="reviews" role="tab" data-toggle="tab">{{__('Reviews')}}</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -58,7 +58,7 @@
                                                 <i class="fas fa-user"></i>
                                             </div>
                                             <div class="select-rating">
-                                                <h4>Your Rating :</h4>
+                                                <h4>{{__('Your Rating')}} :</h4>
                                                 <div class="ratings">
                                                     @for($i = 1; $i < 6; $i++)
                                                         <input type="radio" name="rating" id="rating"  value="{{ $i }}">
@@ -98,7 +98,7 @@
 							<h1>{{$product->name}}</h1>
 						</div>
 						<div class="about-meal">
-							<h4>Description</h4>
+							<h4>{{__('Description')}}</h4>
 							<p>{{$product->description}}</p>
 						</div>
 						<div class="price">

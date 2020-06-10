@@ -51,6 +51,17 @@ class HomeController extends Controller
 
         return back()->with('success', 'Thanks for contacting us!');
     }
+
+    public function changeLanguage($language)
+    {
+        //dd($language);
+        //dd(\Session::put('website_language'));
+        \Session::put('website_language', $language);
+
+        config(['app.locale' => $language]);
+
+        return redirect()->back();
+    }
 }
 
 

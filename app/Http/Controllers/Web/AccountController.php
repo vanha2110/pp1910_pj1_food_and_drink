@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserFormRequest;
+use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Services\UserService;
 
@@ -27,7 +27,7 @@ class AccountController extends Controller
         return view('web.user.profile.index');
     }
 
-    public function updateProfile(UserFormRequest $request)
+    public function updateProfile(Request $request)
     {
         $this->userService->updateProfile($request);
 

@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-
+@section('title', 'About')
 @section('content')
     <!--title-bar start-->
     <section class="title-bar">
@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="right-title-text">  
+                        <div class="right-title-text">
                             <ul>
                                 <li class="breadcrumb-item"><a href="index.html">@lang('Home')</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">@lang('About Us')</li>
@@ -21,16 +21,16 @@
                 </div>
             </div>
     </section>
-    <!--title-bar end-->	
+    <!--title-bar end-->
 
     <!--what-is-natto start-->
-    <section class="about-natto">			
-        <div class="container">		
-            <div class="row">	
+    <section class="about-natto">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="new-heading">
                         <h1> What is Natto? </h1>
-                    </div>						
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <div class="about-text1">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="about-text2">
                         <p> Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus. Nunc et risus. Etiam a nibh tunil Phasellus dignissim metus eget nisi. Vestibulum sapien dolor, aliquet nec, porta ac, malesuada a, libero. Praesent feugiat purus eget est. Nulla facilisi. Vestibulum tincidunt sapiens eu velit. Mauris purus. Maecenas eget mauris eu orci accumsan feugiat. Pellentesque eget velit. Nunc tincidunt. </p>
-                    </div>						
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
     <!--what-is-natto end-->
 
     <!--download-link start-->
-    <section class="app-block-preview">	
+    <section class="app-block-preview">
     </section>
     <!--download-link end-->
 @endsection

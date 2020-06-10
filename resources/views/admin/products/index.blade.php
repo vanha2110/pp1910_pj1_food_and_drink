@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
-                    <td><img style="width: 100%" src="{{url('image' . '/' . $product->image) }}"></td>
+                    <td><img style="width: 200px" src="{{url('image' . '/' . $product->image) }}"></td>
                     <td>{{ $product->category_id }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->description }}</td>

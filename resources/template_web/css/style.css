@@ -387,7 +387,7 @@ color:#847577;
     background: #fff;
 }
 .logo-box {
-	padding:16px 0px;
+	padding:10px 0px;
 }
 .menu-left {
 	text-align:left;
@@ -1007,7 +1007,7 @@ padding-left: 152px;
     margin-left: 20px;
 }
 .logo-img img {
-	Width:100%;
+	Width:60px;
 	border:2px solid #fff;
 	border-radius:5px;
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
@@ -1499,8 +1499,8 @@ padding-left: 152px;
 }
 .language {
 	float:right;
-	padding-top: 53px;
-    padding-bottom: 30px;
+	padding-top: 20px;
+    padding-bottom: 20px;
 }
 .language ul li{
 	display: block;
@@ -1536,7 +1536,7 @@ padding-left: 152px;
 }
 .footer .img-title {
 	padding-top:50px;
-	padding-bottom:22px;
+	padding-bottom:25px;
 }
 .footer p {
 	Color:#cdcdcd;
@@ -1544,8 +1544,7 @@ padding-left: 152px;
 	font-size:14px;
 }
 .footer .link-title {
-	padding-top:57px;
-	padding-bottom:50px;
+	padding-top:50px;
 }
 .footer .link-title h4 {
 	color:#fff;
@@ -3179,10 +3178,12 @@ padding-left: 152px;
 	background: #fff;
 	position: sticky;
     top: 20px;
+    margin-top: 56px;
 }
 .filter-heading {
 	border-bottom:1px solid #e1e1e1;
 	padding:20px 0px 18px 19px;
+    text-align: center;
 }
 .filter-heading h3{
 	font-size:18px;

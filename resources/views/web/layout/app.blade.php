@@ -13,7 +13,7 @@
 	<!-- Favicon -->
 	<link href="{{url('template_web/images/fav.png')}}" rel="shortcut icon" type="image/x-icon"/>
 
-    <title>@yield('title') </title>
+    <title> @yield('title') </title>
 
     <!-- Bootstrap core CSS-->
     <link href="{{url('template_web/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">

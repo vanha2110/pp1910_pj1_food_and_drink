@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-
+@section('title', 'Nature Food')
 @section('content')
 <!--banner start-->
 <section class="block-preview">
@@ -52,10 +52,10 @@
                                 <div class="delivery"><i class="fas fa-shopping-cart"></i>@lang('Delivery Free : Free')</div>
                                 <div class="time"><i class="far fa-clock"></i>@lang('Delivery Time : 30 Min')</div>
                                 <div class="star">
-                                    <span>4.5</span>
-                                    <i class="fas fa-star"></i>
+                                    <i class="" type="hidden"></i>
                                     <div class="comments"><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
                                 </div>
+                                <br>
                             </div>
                         </div>
                     </div>

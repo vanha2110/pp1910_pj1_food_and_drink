@@ -47,4 +47,8 @@ Route::group(['namespace' => 'Web'], function () {
     Route::post('/checkout', 'ProductController@postCheckout')->name('checkout');
     Route::get('/search', 'ProductController@search')->name('search');
     Route::post('/review', 'ProductReviewController@store')->name('review');
+
+    Route::group(['middleware' => 'localization'], function() {
+        Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('change-language');
+    });
 });
