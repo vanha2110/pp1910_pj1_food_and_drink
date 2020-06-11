@@ -80,7 +80,6 @@ class UserController extends Controller
      */
     public function update(UserFormRequest $id, $request)
     {
-        
         $this->userService->update($id, $request);
 
         return redirect()->route('admin.users.index');
