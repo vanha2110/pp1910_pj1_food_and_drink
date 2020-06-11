@@ -36,11 +36,11 @@ function myFunction() {
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
-    btnText.innerHTML = "See All"; 
+    btnText.innerHTML = "See All";
     moreText.style.display = "none";
   } else {
     dots.style.display = "none";
-    btnText.innerHTML = "See Less"; 
+    btnText.innerHTML = "See Less";
     moreText.style.display = "inline";
   }
 }
@@ -52,7 +52,7 @@ function myFunction() {
         $('[data-method="' + $value + '"]').slideDown();
     });
 
-// Rating Select Star Method 
+// Rating Select Star Method
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -61,4 +61,26 @@ function myFunction() {
   ga('create', 'UA-46156385-1', 'cssscript.com');
   ga('send', 'pageview');
 
-  
+function AddCart(id){
+    $.ajax({
+        url: '/add-to-cart/'+id,
+        type: 'GET',
+    }).done(function(response) {
+        RenderCart(response);
+    });
+}
+
+$("#change-item-cart .si-close button").on("click", function () {
+    $.ajax({
+        url: '/del-cart/'+$(this).data("id"),
+        type: 'GET',
+    }).done(function(response) {
+        RenderCart(response);
+    });
+});
+
+function RenderCart(response){
+    $("#change-item-cart").empty();
+    $("#change-item-cart").html(response);
+    $("#total-quanty-show").text($("#total-quanty-cart").val());
+}

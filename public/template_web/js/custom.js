@@ -63,7 +63,7 @@ function myFunction() {
 
 function AddCart(id){
     $.ajax({
-        url: 'add-to-cart/'+id,
+        url: '/add-to-cart/'+id,
         type: 'GET',
     }).done(function(response) {
         RenderCart(response);
@@ -72,7 +72,7 @@ function AddCart(id){
 
 $("#change-item-cart .si-close button").on("click", function () {
     $.ajax({
-        url: 'del-cart/'+$(this).data("id"),
+        url: '/del-cart/'+$(this).data("id"),
         type: 'GET',
     }).done(function(response) {
         RenderCart(response);

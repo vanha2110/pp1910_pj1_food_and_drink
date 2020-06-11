@@ -115,7 +115,7 @@
 							</ul>
 						</div>
 						<div class="order-now-check">
-							<button class="on-btn btn-link" onclick="" ><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart')</a></button>
+							<a onclick="AddCart({{ $product->id }})" href="javascript:"><button class="on-btn btn-link" >@lang('Add to cart')</button></a>
 						</div>
 					</div>
 				</div>
