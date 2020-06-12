@@ -1,6 +1,6 @@
 {
     "Logout": "Đăng Xuất",
-    "login": "Đăng Nhập",
+    "Login": "Đăng Nhập",
     "Register": "Đăng Ký",
     "Admin": "Admin",
     "Dashboard": "Dashboard",
@@ -86,5 +86,7 @@
     "Remove": "Xóa",
     "No Items In Cart!": "Không có sản phẩm!",
     "My Order": "Đơn hàng của tôi",
-    "Quantity": "Số lượng"
+    "Quantity": "Số lượng",
+    "Your Rating": "Đánh giá của bạn",
+    "Write your review": "Viết đánh giá"
 }

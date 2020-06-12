@@ -11,8 +11,8 @@
                                 <i class="fas fa-globe"></i><span class="hidden-xs">English</span><i class="fas fa-caret-down"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="{!! route('change-language', ['en']) !!}">English</a></li>
                                 <li><a href="{!! route('change-language', ['vi']) !!}">Tiếng Việt</a></li>
+                                <li><a href="{!! route('change-language', ['en']) !!}">English</a></li>
                             </ul>
                         </div>
                     </div>

@@ -2726,6 +2726,7 @@ padding-left: 152px;
 	float:left;
 	text-align:left;
 	width: 100%;
+    padding-left: 69px;
 }
 .comment-description p{
 	font-size:14px;
@@ -2830,7 +2831,7 @@ padding-left: 152px;
     cursor: pointer;
     color: #000;
     margin-left: 20px;
-	padding: 0px;
+	padding: 19px 0;
 }
 .rate-star {
     position: absolute;

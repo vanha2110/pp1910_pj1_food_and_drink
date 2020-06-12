@@ -27,7 +27,8 @@
 
     <section class="all-partners">
 		<div class="container">
-			<div class="row">
+            <div id="app">
+			    <div class="row">
 				<div class="col-lg-6 col-md-6">
 					<div id="sync1" class="owl-carousel owl-theme">
 						<div class="item">
@@ -36,9 +37,7 @@
 					</div>
 					<div class="resto-meal-dt">
 						<div class="right-side-btns">
-                            <div id="app">
-                                <star-rating :rating="{{$product->getStarRating()}}" :read-only="true" :star-size="30"></star-rating>
-                            </div>
+                            <star-rating :rating="{{$product->getStarRating()}}" :read-only="true" :star-size="30"></star-rating>
 						</div>
 					</div>
 
@@ -66,7 +65,7 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <textarea type="text" class="rating-input" name="comment" id="comment" placeholder="Write your review"></textarea>
+                                            <textarea type="text" class="rating-input" name="comment" id="comment" placeholder="@lang('Write your review')"></textarea>
                                             <input class="rating-btn btn-link" type="submit" value="Save Review">
                                         </div>
                                     </form>
@@ -75,13 +74,14 @@
                                     <div class="rating-1">
                                         @forelse($product->reviews as $review)
                                             <div class="user-detail-heading">
-                                                <a href="{{ route('account') }}"><img src="{{ url('image/'. auth()->user()->avatar) }}" alt=""></a>
-                                                <h4>{{ auth()->user()->name }}</h4><br>
+                                                <a><img src="{{ url('image/'. $review->user[0]->avatar) }}" alt=""></a>
+                                                <h4>{{ $review->user[0]->name }}</h4>
                                             </div>
                                             <div class="reply-time">
-                                                <p><i class="far fa-clock"></i>12 hours ago</p>
+                                                <p><i class="far fa-clock"></i>{{ $review->created_at->toDayDateTimeString() }}</p>
                                             </div>
                                             <div class="comment-description">
+                                                <star-rating :rating="{{ $review->rating }}" :read-only="true" :show-rating="false" :star-size="20"></star-rating>
                                                 <p>{{ $review->comment }}</p>
                                             </div>
                                             @empty
@@ -120,6 +120,7 @@
 					</div>
 				</div>
 			</div>
+            </div>
 		</div>
 	</section>
     <script src="{{url('js/app.js')}}"></script>

@@ -53,7 +53,9 @@ class ProductController extends Controller
      */
     public function show($slug)
     {
-        $product = Product::whereSlug($slug)->firstOrFail();
+        $product = Product::with('reviews.user')->whereSlug($slug)->firstOrFail();
+        $product = json_decode(json_encode($product));
+        echo "<pre>"; print_r($product); die;
 
         return view('web.products.detail', compact('product'));
     }
