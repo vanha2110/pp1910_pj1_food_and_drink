@@ -13,7 +13,49 @@
                     <div class="col-md-8">
                         <div class="topbar-right text-center text-md-right">
                             <ul class="list-inline">
-                                <li><a href="{{ route('product_cart') }}"><i class="fas fa-shopping-cart"></i>@lang('Shopping Cart') <span class="badge badge-secondary">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''  }}</span></a></li>
+                                <li>
+                                    <a href="#"><i class="fas fa-shopping-cart"></i>@lang('Shopping Cart')
+                                        @if(Session::has("cart") != null)
+                                            <span id="total-quanty-show" class="badge badge-secondary">{{ Session::get('cart')->totalQty }}</span>
+                                        @else
+                                            <span id="total-quanty-show" class="badge badge-secondary">0</span>
+                                        @endif
+                                    </a>
+                                    <div class="cart-hover">
+                                        <div id="change-item-cart">
+                                            @if(Session::has("cart") != null)
+                                                <div class="select-items">
+                                                    <table>
+                                                        <tbody>
+                                                        @foreach(Session::get('cart')->items as $products)
+                                                            <tr>
+                                                                <td class="si-pic"><img style="width: 50px" src={{url('image/' . $products['item']->image) }} alt=""></td>
+                                                                <td class="si-text">
+                                                                    <div class="product-selected">
+                                                                        <p>{{ number_format($products['item']->price) }} VNĐ x {{ $products['qty'] }}</p>
+                                                                        <h6>{{ $products['item']->name }}</h6>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="si-close">
+                                                                    <button class="remove-btn" data-id="{{ $products['item']->id }}">Remove</button>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="select-total">
+                                                    <span>total:</span>
+                                                    <h5>{{ number_format(Session::get('cart')->totalPrice) }} VNĐ</h5>
+                                                </div>
+                                            @endif
+                                        </div>
+
+                                        <div class="select-button">
+                                            <a href="{{ route('checkout') }}" class="primary-btn view-card">CHECK OUT</a>
+                                        </div>
+                                    </div>
+                                </li>
                                 @if (Auth::guest())
                                     <li><a href="{{ route('login') }}">@lang('Login')</a></li>
                                 @else

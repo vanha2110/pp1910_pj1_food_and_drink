@@ -26,7 +26,7 @@ class ProductService
         $data = $request->all();
         $data['slug'] = Str::slug($request->get('name', '-'));
         $data['image'] =  $this->uploadImage($request, 'image');
-        
+
         $this->productRepository->create($data);
     }
 
@@ -35,12 +35,12 @@ class ProductService
         $data = $request->all();
         $data['slug'] = Str::slug($request->get('name', '-'));
         $data['image'] =  $this->uploadImage($request, 'image');
-        
+
         $this->productRepository->updateBySlug($slug, $data);
     }
 
     public function getAddToCart(Request $request, $id)
-    {   
+    {
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
@@ -49,7 +49,7 @@ class ProductService
     }
 
     public function getDelItemCart($id)
-    {   
+    {
         $oldCart = Session::has('cart') ? Session::get('cart'):null;
         $cart = new Cart($oldCart);
         $cart->removeItem($id);
@@ -58,7 +58,7 @@ class ProductService
         }
         else{
             Session::forget('cart');
-        } 
+        }
     }
 
     public function checkout(Request $request)
@@ -70,7 +70,7 @@ class ProductService
         $data['user_id'] = Auth::user()->id;
         $data['total_price'] = $cart->totalPrice;
         $order = Order::create($data);
-        
+
         $data['order_id'] = $order->id;
         Payment::create($data);
         foreach ($cart->items as $key => $value) {

@@ -72,27 +72,26 @@
 
 		});
 	});
-	</script>
-    <script>
-        $('.ratings').rating(function(vote, event){
-            let request = {
-                rating: vote,
-                product_id: $('#product_id').val()
-            }
-            $.ajaxSetup({
-                headers: {
+    $('.ratings').rating(function(vote, event){
+        let request = {
+            rating: vote,
+            product_id: $('#product_id').val()
+        }
+        $.ajaxSetup({
+            headers: {
 
-                }
-            })
-            $.ajax({
-                method: 'POST',
-                url: '/review',
-                data: request,
-                success: function(data) {
-                    console.log(data);
-                },
-            })
+            }
         })
-    </script>
+        $.ajax({
+            method: 'POST',
+            url: '/review',
+            data: request,
+            success: function(data) {
+                console.log(data);
+            },
+        })
+    });
+
+	</script>
   </body>
 </html>
