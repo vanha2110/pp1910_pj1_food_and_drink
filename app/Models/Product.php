@@ -46,7 +46,7 @@ class Product extends Model
             return 0;
         }
         $starCountSum = $this->reviews()->sum('rating');
-        $average = $starCountSum/ $count;
+        $average = $this->reviews()->avg('rating');
 
         return $average;
     }
