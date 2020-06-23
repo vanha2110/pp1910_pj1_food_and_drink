@@ -70,7 +70,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="main-comments bm-margin">
+                                <div class="main-comments bm-margin" id="comment-review">
                                     <div class="rating-1">
                                         @forelse($product->reviews as $review)
                                             <div class="user-detail-heading">

@@ -61,6 +61,7 @@ function myFunction() {
   ga('create', 'UA-46156385-1', 'cssscript.com');
   ga('send', 'pageview');
 
+$( document ).ready(function() {});
 function AddCart(id){
     $.ajax({
         url: '/add-to-cart/'+id,
@@ -84,3 +85,23 @@ function RenderCart(response){
     $("#change-item-cart").html(response);
     $("#total-quanty-show").text($("#total-quanty-cart").val());
 }
+
+$(document).ready(function(){
+    $('#qty_input').prop('disabled', true);
+    $('#plus-btn').click(function(){
+        $('#qty_input').val(parseInt($('#qty_input').val()) + 1 );
+    });
+    $('#minus-btn').click(function(){
+        $('#qty_input').val(parseInt($('#qty_input').val()) - 1 );
+        if ($('#qty_input').val() == 0) {
+            $('#qty_input').val(1);
+        }
+
+    });
+});
+$('.ratings').rating(function(vote, event){
+    let request = {
+        rating: vote,
+        product_id: $('#product_id').val()
+    }
+});
