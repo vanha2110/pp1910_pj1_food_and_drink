@@ -33,4 +33,21 @@ class Product extends Model
     {
         return $this->hasOne(Category::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(ProductReview::class);
+    }
+
+    public function getStarRating()
+    {
+        $count = $this->reviews()->count();
+        if (empty($count)){
+            return 0;
+        }
+        $starCountSum = $this->reviews()->sum('rating');
+        $average = $this->reviews()->avg('rating');
+
+        return $average;
+    }
 }
