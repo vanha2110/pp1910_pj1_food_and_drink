@@ -1,6 +1,8 @@
 @extends('web.layout.app')
 @section('title', $product->name)
-
+@section('css')
+    <link href="{{url('template_web/css/rating.css')}}" rel="stylesheet">
+@endsection
 @section('content')
     <section class="title-bar">
         <div class="container">
@@ -11,9 +13,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="right-title-text">  
+                    <div class="right-title-text">
                         <ul>
-							<li class="breadcrumb-item"><a href="{{route('index')}}">@lang('Home')</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('index')}}">@lang('Home')</a></li>
                             <li class="breadcrumb-item"><a href="{{route('product')}}">@lang('Products')</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
                         </ul>
@@ -23,32 +25,72 @@
         </div>
     </section>
 
-    <section class="all-partners">			
-		<div class="container">		
-			<div class="row">					
-				<div class="col-lg-8 col-md-8">
+    <section class="all-partners">
+		<div class="container">
+            <div id="app">
+			    <div class="row">
+				<div class="col-lg-6 col-md-6">
 					<div id="sync1" class="owl-carousel owl-theme">
 						<div class="item">
-                        <img src="/storage/img/{{$product->image}}" alt="">
-						</div>				
+                        <img src="{{url('image' . '/' . $product->image) }}" alt="">
+						</div>
 					</div>
 					<div class="resto-meal-dt">
 						<div class="right-side-btns">
-							<div class="bagde-dt">
-								<div class="partner-badge">
-									Partner
-								</div>											
-							</div>
-							<div class="resto-review-stars">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>								
-								<span>4.5/5</span>									
-							</div>
+                            <star-rating :rating="{{$product->getStarRating()}}" :read-only="true" :star-size="30"></star-rating>
 						</div>
 					</div>
+
+                    <div class="all-tabs">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class ="nav-item" role="presentation">
+                                <a class="nav-link active" aria-controls="reviews" role="tab" data-toggle="tab">{{__('Reviews')}}</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" role="tabpanel" id="reviews">
+                                <div class="comment-post">
+                                    <form action="{{ route('review') }}" method="post" >
+                                        @csrf
+                                        <div class="post-items">
+                                            <div class="img-dp">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="select-rating">
+                                                <h4>{{__('Your Rating')}} :</h4>
+                                                <div class="ratings">
+                                                    @for($i = 1; $i < 6; $i++)
+                                                        <input type="radio" name="rating" id="rating"  value="{{ $i }}">
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            <textarea type="text" class="rating-input" name="comment" id="comment" placeholder="@lang('Write your review')"></textarea>
+                                            <input class="rating-btn btn-link" type="submit" value="Save Review">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="main-comments bm-margin" id="comment-review">
+                                    <div class="rating-1">
+                                        @forelse($product->reviews as $review)
+                                            <div class="user-detail-heading">
+                                                <a><img src="{{ url('image/'. $review->user[0]->avatar) }}" alt=""></a>
+                                                <h4>{{ $review->user[0]->name }}</h4>
+                                            </div>
+                                            <div class="reply-time">
+                                                <p><i class="far fa-clock"></i>{{ $review->created_at->toDayDateTimeString() }}</p>
+                                            </div>
+                                            <div class="comment-description">
+                                                <star-rating :rating="{{ $review->rating }}" :read-only="true" :show-rating="false" :star-size="20"></star-rating>
+                                                <p>{{ $review->comment }}</p>
+                                            </div>
+                                            @empty
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				</div>
 				<div class="col-lg-4 col-md-4">
 					<div class="right-side">
@@ -56,12 +98,11 @@
 							<h1>{{$product->name}}</h1>
 						</div>
 						<div class="about-meal">
-							<h4>Description</h4>
-							<p>{{$product->description}}</span></p>
-							<a href="javascript:;" onclick="myFunction()" id="readBtn">@lang('See All')</a>
-						</div>					
+							<h4>{{__('Description')}}</h4>
+							<p>{{$product->description}}</p>
+						</div>
 						<div class="price">
-							<span>{{$product->price}} VNĐ</span>
+							<span>{{number_format($product->price)}} VNĐ</span>
 						</div>
 						<div class="dt-detail">
 							<ul>
@@ -73,33 +114,17 @@
 								</li>
 							</ul>
 						</div>
-						<div class="Qty">
-							<h4> Qty</h4>
-							 <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button class="minus-btn btn-sm" id="minus-btn"><i class="fas fa-minus-square"></i></button>
-                                </div>
-                                <input type="number" id="qty_input" class="qty-control" value="1" min="1">
-                                <div class="input-group-prepend">
-                                    <button class="add-btn btn-sm" id="plus-btn"><i class="fas fa-plus-square"></i></button>
-                                </div>
-                            </div>
-						</div>
-						<div class="total-cost">
-							<div class="total-text">
-								<h5>@lang('Total')</h5>
-							</div>
-							<div class="total-price">
-								<p>$17.00</p>
-							</div>
-						</div>
 						<div class="order-now-check">
-							<button class="on-btn btn-link" onclick="">@lang('Order Now')</button>
+							<a onclick="AddCart({{ $product->id }})" href="javascript:"><button class="on-btn btn-link" >@lang('Add to cart')</button></a>
 						</div>
 					</div>
-						
 				</div>
-			</div>			
+			</div>
+            </div>
 		</div>
 	</section>
+    <script src="{{url('js/app.js')}}"></script>
+@endsection
+@section('script')
+    <script src="{{ url('template_web/js/rating.js') }}"></script>
 @endsection

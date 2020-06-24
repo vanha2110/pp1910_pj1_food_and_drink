@@ -80,4 +80,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rate::class);
     }
+
+    public function review()
+    {
+        return $this->hasOne(ProductReview::class);
+    }
+
 }

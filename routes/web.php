@@ -21,6 +21,9 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/users/logout', 'LogoutController@logout')->name('logout');
     Route::post('/account/password', 'ChangePasswordController@change')->name('change_password');
     Route::get('/account/password', 'ChangePasswordController@index')->name('change_password');
+    Route::get('login/{provider}', 'LoginController@redirectToProvider');
+    Route::get('login/{provider}/callback', 'LoginController@handleProviderCallback');
+
 });
 
 Route::group(['namespace' => 'Web'], function () {
@@ -33,7 +36,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/about', 'HomeController@about')->name('about');
     Route::get('/contact', 'HomeController@contact')->name('contact');
     Route::post('/contact', 'HomeController@contactSend');
-    
+
     Route::get('/products', 'ProductController@index')->name('product');
     Route::get('/product-of-category/{id}', 'ProductController@filterByCategory')->name('productcategory');
     Route::get('/product/{slug}', 'ProductController@show')->name('product_detail');
@@ -43,4 +46,5 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/checkout', 'ProductController@getCheckout')->name('checkout');
     Route::post('/checkout', 'ProductController@postCheckout')->name('checkout');
     Route::get('/search', 'ProductController@search')->name('search');
+    Route::post('/review', 'ProductReviewController@store')->name('review');
 });
