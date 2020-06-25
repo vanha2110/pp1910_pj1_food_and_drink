@@ -18,4 +18,5 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
     Route::resource('users', 'UserController');
     Route::resource('products', 'ProductController');
     Route::resource('categories', 'CategoryController');
+    Route::resource('orders', 'OrderController')->only('index', 'destroy');
 });
