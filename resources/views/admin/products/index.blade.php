@@ -30,7 +30,7 @@
                     <td><img style="width: 200px" src="{{url('image' . '/' . $product->image) }}"></td>
                     <td>{{ $product->category_id }}</td>
                     <td>{{ $product->price }}</td>
-                    <td>{{ $product->description }}</td>
+                    <td>{{ Str::limit($product->description, 200) }}</td>
                     <td>
                         <a href="{{route('admin.products.edit', ['product' => $product->slug])}}"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" onclick="$(this).find('form').submit();" ><i class="fa fa-trash" ></i>

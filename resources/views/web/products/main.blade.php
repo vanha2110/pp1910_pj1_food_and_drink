@@ -31,7 +31,7 @@
                             <div class="time"><i class="far fa-clock"></i>@lang('Delivery Time : 30 Min')</div>
                             <div class="star">
                                 <i class="" type="hidden"></i>
-                                <div class="comments"><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
+                                <div class="comments"><a onclick="AddCart({{ $product->id }})" href="javascript:">@lang('Add to cart') <i class="fas fa-shopping-cart"></i></a></div>
                             </div>
                             <br>
                         </div>

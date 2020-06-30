@@ -27,7 +27,8 @@
 
     <section class="all-partners">
 		<div class="container">
-			<div class="row">
+            <div id="app">
+			    <div class="row">
 				<div class="col-lg-6 col-md-6">
 					<div id="sync1" class="owl-carousel owl-theme">
 						<div class="item">
@@ -36,9 +37,7 @@
 					</div>
 					<div class="resto-meal-dt">
 						<div class="right-side-btns">
-                            <div id="app">
-                                <star-rating :rating="{{$product->getStarRating()}}" :read-only="true" :star-size="30"></star-rating>
-                            </div>
+                            <star-rating :rating="{{$product->getStarRating()}}" :read-only="true" :star-size="30"></star-rating>
 						</div>
 					</div>
 
@@ -50,38 +49,45 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="reviews">
-                                <div class="comment-post">
-                                    <form action="{{ route('review') }}" method="post" >
-                                        @csrf
-                                        <div class="post-items">
-                                            <div class="img-dp">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="select-rating">
-                                                <h4>{{__('Your Rating')}} :</h4>
-                                                <div class="ratings">
-                                                    @for($i = 1; $i < 6; $i++)
-                                                        <input type="radio" name="rating" id="rating"  value="{{ $i }}">
-                                                    @endfor
+                                @if (Auth::check())
+                                    <div class="comment-post"> 
+                                        <form action="{{ route('review') }}" method="post" >
+                                            @csrf
+                                            <div class="post-items">
+                                                <div class="img-dp">
+                                                    <i class="fas fa-user"></i>
                                                 </div>
+                                                <div class="select-rating">
+                                                    <h4>{{__('Your Rating')}} :</h4>
+                                                    <div class="ratings">
+                                                        @for($i = 1; $i < 6; $i++)
+                                                            <input type="radio" name="rating" id="rating"  value="{{ $i }}">
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <textarea type="text" class="rating-input" name="comment" id="comment" placeholder="Write your review"></textarea>
+                                                <input class="rating-btn btn-link" type="submit" value="Save Review">
                                             </div>
-                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <textarea type="text" class="rating-input" name="comment" id="comment" placeholder="Write your review"></textarea>
-                                            <input class="rating-btn btn-link" type="submit" value="Save Review">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="main-comments bm-margin">
+                                        </form>
+                                    </div>
+                                @else 
+                                    <div class="review-product">
+                                        Login to review
+                                    </div>
+                                @endif
+                                <div class="main-comments bm-margin" id="comment-review">
                                     <div class="rating-1">
                                         @forelse($product->reviews as $review)
                                             <div class="user-detail-heading">
-                                                <a href="{{ route('account') }}"><img src="{{ url('image/'. auth()->user()->avatar) }}" alt=""></a>
-                                                <h4>{{ auth()->user()->name }}</h4><br>
+                                                <a><img src="{{ url('image/'. $review->user[0]->avatar) }}" alt=""></a>
+                                                <h4>{{ $review->user[0]->name }}</h4>
                                             </div>
                                             <div class="reply-time">
-                                                <p><i class="far fa-clock"></i>12 hours ago</p>
+                                                <p><i class="far fa-clock"></i>{{ $review->created_at->toDayDateTimeString() }}</p>
                                             </div>
                                             <div class="comment-description">
+                                                <star-rating :rating="{{ $review->rating }}" :read-only="true" :show-rating="false" :star-size="20"></star-rating>
                                                 <p>{{ $review->comment }}</p>
                                             </div>
                                             @empty
@@ -115,11 +121,12 @@
 							</ul>
 						</div>
 						<div class="order-now-check">
-							<button class="on-btn btn-link" onclick="" ><a href="{{route('product_addToCart', $product->id)}}">@lang('Add to cart')</a></button>
+							<a onclick="AddCart({{ $product->id }})" href="javascript:"><button class="on-btn btn-link" >@lang('Add to cart')</button></a>
 						</div>
 					</div>
 				</div>
 			</div>
+            </div>
 		</div>
 	</section>
     <script src="{{url('js/app.js')}}"></script>

@@ -10,5 +10,11 @@ class ProductReview extends Model
         'comment',
         'product_id',
         'rating',
+        'user_id'
     ];
+
+    public function user()
+    {
+        return $this->hasMany(User::class,'id', 'user_id');
+    }
 }

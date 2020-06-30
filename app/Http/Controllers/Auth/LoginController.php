@@ -38,6 +38,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = url()->previous();
         $this->middleware('guest')->except('logout');
     }
 
@@ -45,13 +46,20 @@ class LoginController extends Controller
         $remember_me = isset(request()->remember_me) ? true : false;
         $credential = request()->only(['email', 'password']);
         if(Auth::guard('web')->attempt($credential, $remember_me)){
-            return redirect($this->redirectTo);
+            return redirect()->intended();
         }
         return redirect()->back()->with('status', 'Username or Password is invalid!');
     }
 
     public function showLoginForm()
     {
+        $urlPrevious = url()->previous();
+        $urlBase = url()->to('/');
+
+        if(($urlPrevious != $urlBase . '/users/login') && (substr($urlPrevious, 0, strlen($urlBase)) === $urlBase)) {
+            session()->put('url.intended', $urlPrevious);
+        }
+
         return view('web.auth.login');
     }
 

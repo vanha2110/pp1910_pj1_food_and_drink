@@ -36,8 +36,15 @@ class ProductReviewController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->user_id);
-        auth()->user()->review()->create($request->all());
+        $data = $request->all();
+        $data['user_id'] = auth()->user()->id;
+        ProductReview::updateOrCreate([
+            'user_id' => $data['user_id'],
+            'product_id'  => $data['product_id'],
+        ],
+            $data
+        );
+
 
         return redirect()->back();
     }

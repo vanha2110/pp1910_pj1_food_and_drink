@@ -4,19 +4,19 @@
             <div class="row justify-content-between">
                 <div class="col-lg-5 col-md-6">
                 </div>
-                <div class="col-lg-2 col-md-3">
-                    <div class="language">
-                        <div class="btn-group open">
-                            <button class="lang-btn l-btn-link dropdown-toggle-no-caret" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fas fa-globe"></i><span class="hidden-xs">English</span><i class="fas fa-caret-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="{!! route('change-language', ['en']) !!}">English</a></li>
-                                <li><a href="{!! route('change-language', ['vi']) !!}">Tiếng Việt</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-lg-2 col-md-3">--}}
+{{--                    <div class="language">--}}
+{{--                        <div class="btn-group open">--}}
+{{--                            <button class="lang-btn l-btn-link dropdown-toggle-no-caret" data-toggle="dropdown" aria-expanded="true">--}}
+{{--                                <i class="fas fa-globe"></i><span class="hidden-xs">English</span><i class="fas fa-caret-down"></i>--}}
+{{--                            </button>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li><a href="{!! route('change-language', ['vi']) !!}">Tiếng Việt</a></li>--}}
+{{--                                <li><a href="{!! route('change-language', ['en']) !!}">English</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
@@ -31,11 +31,10 @@
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="link-title">
-                    <h4>About Natto</h4>
+                    <h4>About Nature Food</h4>
                     <ul class="links">
-                        <li><a href="about.html">@lang('About Us')</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="our_blog.html">Blog</a></li>
+                        <li><a href="#">@lang('About Us')</a></li>
+                        <li><a href="#">@lang('Contact')</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +61,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="copyright-text">
-                    <i class="far fa-copyright"></i>Copyright 2019 <a href="index.html">Natto</a> by Gambol. All Rights Reserved.
+                    <i class="far fa-copyright"></i>Copyright 2020. All Rights Reserved.
                     </div>
                 </div>
             </div>
